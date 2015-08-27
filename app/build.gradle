@@ -6,13 +6,8 @@ android {
 
     defaultConfig {
         applicationId "de.robv.android.xposed.installer"
-<<<<<<< HEAD
-        minSdkVersion 21
-        targetSdkVersion 23
-=======
         minSdkVersion 14
         targetSdkVersion 22
->>>>>>> DVDAndroid/material
         versionCode 37
         versionName "3.0 alpha4"
         project.ext.set("archivesBaseName", "XposedInstaller_by_dvdandroid");
