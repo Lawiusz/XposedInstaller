@@ -1,16 +1,12 @@
 package de.robv.android.xposed.installer;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -27,6 +23,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.CursorAdapter;
 import android.widget.FilterQueryProvider;
 import android.widget.TextView;
+
+import com.afollestad.materialdialogs.MaterialDialog;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -79,24 +77,20 @@ public class DownloadFragment extends Fragment
 	}
 
 	private void showDisabledDownloadsDialog() {
-		AlertDialog.Builder disabledDownloads = new AlertDialog.Builder(
-				getActivity());
-		disabledDownloads.setTitle(getString(R.string.download_disabled));
-		disabledDownloads
-				.setMessage(getString(R.string.download_disabled_description));
-		disabledDownloads.setPositiveButton(R.string.download_open_settings,
-				new DialogInterface.OnClickListener() {
+		new MaterialDialog.Builder(getActivity())
+				.title(R.string.download_disabled)
+				.content(R.string.download_disabled_description)
+				.positiveText(R.string.download_open_settings)
+				.callback(new MaterialDialog.ButtonCallback() {
 					@Override
-					public void onClick(DialogInterface disabledDownloads,
-							int id) {
+					public void onPositive(MaterialDialog dialog) {
+						super.onPositive(dialog);
 						Intent intent = new Intent(getActivity(),
 								SettingsActivity.class);
 						startActivity(intent);
-						disabledDownloads.dismiss();
+						dialog.dismiss();
 					}
-				});
-		disabledDownloads.create();
-		disabledDownloads.show();
+				}).show();
 	}
 
 	@Override
@@ -112,17 +106,13 @@ public class DownloadFragment extends Fragment
 				.findViewById(R.id.listModules);
 		final SwipeRefreshLayout refreshLayout = (SwipeRefreshLayout) v
 				.findViewById(R.id.swiperefreshlayout);
+		refreshLayout.setColorSchemeColors(XposedApp.getColor(getContext()));
 		refreshLayout.setOnRefreshListener(
 				new SwipeRefreshLayout.OnRefreshListener() {
 					@Override
 					public void onRefresh() {
+						mRepoLoader.setSwipeRefreshLayout(refreshLayout);
 						mRepoLoader.triggerReload(true);
-						// SIMULATE WAIT TIME
-						new Handler().postDelayed(new Runnable() {
-							public void run() {
-								refreshLayout.setRefreshing(false);
-							}
-						}, 1500);
 					}
 				});
 		mRepoLoader.addListener(this, true);
@@ -224,22 +214,27 @@ public class DownloadFragment extends Fragment
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			case R.id.menu_sort:
-				AlertDialog.Builder builder = new AlertDialog.Builder(
-						getActivity());
-				builder.setTitle(R.string.download_sorting_title);
-				builder.setSingleChoiceItems(R.array.download_sort_order,
-						mSortingOrder, new OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog,
-									int which) {
-								mSortingOrder = which;
-								mPref.edit().putInt("download_sorting_order",
-										mSortingOrder).apply();
-								reloadItems();
-								dialog.dismiss();
-							}
-						});
-				builder.show();
+				new MaterialDialog.Builder(getActivity())
+						.title(R.string.download_sorting_title)
+						.items(R.array.download_sort_order)
+						.itemsCallbackSingleChoice(mSortingOrder,
+								new MaterialDialog.ListCallbackSingleChoice() {
+									@Override
+									public boolean onSelection(
+											MaterialDialog materialDialog,
+											View view, int i,
+											CharSequence charSequence) {
+										mSortingOrder = i;
+										mPref.edit()
+												.putInt("download_sorting_order",
+                                                        mSortingOrder)
+												.apply();
+										reloadItems();
+										materialDialog.dismiss();
+										return true;
+									}
+								})
+						.show();
 				return true;
 		}
 		return super.onOptionsItemSelected(item);
