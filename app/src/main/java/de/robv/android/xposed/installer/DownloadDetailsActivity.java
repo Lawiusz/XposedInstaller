@@ -205,8 +205,7 @@ public class DownloadDetailsActivity extends XposedBaseActivity
 			case R.id.menu_share:
 
 				String text = mModule.name + " - ";
-				String s = getPackageManager()
-						.getInstallerPackageName(mPackageName);
+				String s = "null";
 
 				if (s.equals(ModulesFragment.PLAY_STORE_PACKAGE)) {
 					text += String.format(ModulesFragment.PLAY_STORE_LINK,
