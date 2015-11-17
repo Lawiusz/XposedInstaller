@@ -1,8 +1,8 @@
 <resources>
 
     <!-- base colors-->
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#00695c</color>
+    <color name="colorPrimaryDark">#004d40</color>
     <color name="colorPrimaryLight">#727272</color>
     <color name="colorAccent">@color/colorPrimary</color>
     <color name="list_header">#777</color>
