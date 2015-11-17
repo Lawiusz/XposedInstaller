@@ -205,18 +205,11 @@ public class DownloadDetailsActivity extends XposedBaseActivity
 			case R.id.menu_share:
 
 				String text = mModule.name + " - ";
-				String s = "null";
-
-				if (s.equals(ModulesFragment.PLAY_STORE_PACKAGE)) {
-					text += String.format(ModulesFragment.PLAY_STORE_LINK,
-							mPackageName);
-				} else {
 					text += String.format(ModulesFragment.XPOSED_REPO_LINK,
 							mPackageName);
-				}
 
 				Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-				sharingIntent.setType("text/html");
+				sharingIntent.setType("text/plain");
 				sharingIntent.putExtra(Intent.EXTRA_TEXT, text);
 				startActivity(Intent.createChooser(sharingIntent,
 						getString(R.string.share)));
