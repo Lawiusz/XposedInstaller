@@ -95,7 +95,7 @@
 
     <!-- Download tab -->
     <string name="menuSearch">Szukaj</string>
-    <string name="menuReload">Przeładuj</string>
+    <string name="menuReload">Odśwież</string>
     <string name="changes">Zmiany:</string>
     <string name="download_details_page_description">Opis</string>
     <string name="download_details_page_versions">Wersja</string>
