@@ -25,6 +25,58 @@
         <item name="download_status_installed">@android:color/holo_orange_light</item>
     </style>
 
+    <style name="Theme.XposedInstaller.Dark.Teal" parent="Theme.XposedInstaller.Dark.Base">
+        <item name="android:colorPrimary">@color/teal_800</item>
+        <item name="android:colorPrimaryDark">@color/teal_900</item>
+        <item name="colorAccent">@color/teal_800</item>
+        <item name="android:navigationBarColor">@color/teal_900</item>
+        <item name="theme_color">@color/teal_900</item>
+        <item name="background_card">@drawable/background_card_dark</item>
+        <item name="background_card_pressed">@drawable/background_card_pressed_dark</item>
+        <item name="pager_tab_strip_bg">@color/pager_tab_strip_bg_dark</item>
+        <item name="text_important">@android:color/holo_orange_light</item>
+        <item name="download_status_installed">@android:color/holo_orange_light</item>
+    </style>
+
+    <style name="Theme.XposedInstaller.Dark.Blue" parent="Theme.XposedInstaller.Dark.Base">
+        <item name="android:colorPrimary">@color/blue_800</item>
+        <item name="android:colorPrimaryDark">@color/blue_900</item>
+        <item name="theme_color">@color/blue_900</item>
+        <item name="colorAccent">@color/blue_800</item>
+        <item name="android:navigationBarColor">@color/blue_900</item>
+        <item name="background_card">@drawable/background_card_dark</item>
+        <item name="background_card_pressed">@drawable/background_card_pressed_dark</item>
+        <item name="pager_tab_strip_bg">@color/pager_tab_strip_bg_dark</item>
+        <item name="text_important">@android:color/holo_orange_light</item>
+        <item name="download_status_installed">@android:color/holo_orange_light</item>
+    </style>
+
+    <style name="Theme.XposedInstaller.Dark.Red" parent="Theme.XposedInstaller.Dark.Base">
+        <item name="android:colorPrimary">@color/red_800</item>
+        <item name="android:colorPrimaryDark">@color/red_900</item>
+        <item name="theme_color">@color/red_900</item>
+        <item name="colorAccent">@color/red_800</item>
+        <item name="android:navigationBarColor">@color/red_900</item>
+        <item name="background_card">@drawable/background_card_dark</item>
+        <item name="background_card_pressed">@drawable/background_card_pressed_dark</item>
+        <item name="pager_tab_strip_bg">@color/pager_tab_strip_bg_dark</item>
+        <item name="text_important">@android:color/holo_orange_light</item>
+        <item name="download_status_installed">@android:color/holo_orange_light</item>
+    </style>
+
+    <style name="Theme.XposedInstaller.Dark.BlueGrey" parent="Theme.XposedInstaller.Dark.Base">
+        <item name="android:colorPrimary">@color/blue_grey_800</item>
+        <item name="android:colorPrimaryDark">@color/blue_grey_900</item>
+        <item name="theme_color">@color/blue_grey_900</item>
+        <item name="colorAccent">@color/blue_grey_800</item>
+        <item name="android:navigationBarColor">@color/blue_grey_900</item>
+        <item name="background_card">@drawable/background_card_dark</item>
+        <item name="background_card_pressed">@drawable/background_card_pressed_dark</item>
+        <item name="pager_tab_strip_bg">@color/pager_tab_strip_bg_dark</item>
+        <item name="text_important">@android:color/holo_orange_light</item>
+        <item name="download_status_installed">@android:color/holo_orange_light</item>
+    </style>
+
     <style name="Theme.XposedInstaller.Dark.Black" parent="Theme.XposedInstaller.Dark">
         <item name="android:windowBackground">@color/app_background_black</item>
         <item name="list_download_item_color">@color/list_download_item_color_black</item>

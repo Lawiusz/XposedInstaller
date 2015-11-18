@@ -52,9 +52,6 @@
             android:summary="@string/enable_heads_up_summary"
             android:title="@string/enable_heads_up"/>
 
-        <Preference
-            android:key="colors"
-            android:title="@string/choose_color"/>
 
         <SwitchPreference
             android:defaultValue="false"

@@ -161,10 +161,18 @@
     <string name="settings_performance_experiment" tools:ignore="UnusedResources">Performance experiment</string>
     <string name="settings_performance_experiment_summary" tools:ignore="UnusedResources">If you enable this, your system performance might either increase, decrease or stay the same. Feel free to try it and report back which effect you see (or if there is none at all). You need to reinstall the framework and reboot after changing this.</string>
     <string name="settings_group_app">Application</string>
+
+    <!-- Themes -->
     <string name="settings_theme">Theme</string>
-    <string name="settings_theme_light">Light</string>
-    <string name="settings_theme_dark">Dark</string>
     <string name="settings_theme_black">Black (useful for AMOLED screens)</string>
+    <string name="settings_theme_dark_blue">Dark Blue</string>
+    <string name="settings_theme_dark_teal">Dark Teal</string>
+    <string name="settings_theme_dark_red">Dark Red</string>
+    <string name="settings_theme_dark_bluegrey">Dark Blue Grey</string>
+
+
+
+
     <string name="settings_default_view">Default view</string>
 
     <!-- Support tab -->

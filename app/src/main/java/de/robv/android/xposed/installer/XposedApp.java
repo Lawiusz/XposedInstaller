@@ -24,6 +24,8 @@ import android.preference.PreferenceManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
+import android.util.TypedValue;
+import android.content.res.Resources.Theme;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -86,13 +88,23 @@ public class XposedApp extends Application
 		return mInstance.mPref;
 	}
 
+	public static int lcolor(Context context) { //good!
+		TypedValue typedValue = new TypedValue();
+		Theme theme = context.getTheme();
+		theme.resolveAttribute(R.attr.theme_color, typedValue, true);
+		int color = typedValue.data;
+		return color;
+	}
+
 	public static int getColor(Context context) {
 		SharedPreferences prefs = context.getSharedPreferences(
 				context.getPackageName() + "_preferences", MODE_PRIVATE);
-		int defaultColor = context.getResources()
-				.getColor(R.color.colorPrimary);
+		TypedValue typedValue = new TypedValue();
+		Theme theme = context.getTheme();
+		theme.resolveAttribute(R.attr.theme_color, typedValue, true);
+		int color = typedValue.data;
 
-		return prefs.getInt("colors", defaultColor);
+		return prefs.getInt("colors", color);
 	}
 
 	public static void setColors(ActionBar actionBar, Object value,

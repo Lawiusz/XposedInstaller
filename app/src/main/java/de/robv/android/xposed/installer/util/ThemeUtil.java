@@ -9,10 +9,13 @@ import de.robv.android.xposed.installer.XposedApp;
 import de.robv.android.xposed.installer.XposedBaseActivity;
 
 public final class ThemeUtil {
-	private static int[] THEMES = new int[] {
-			R.style.Theme_XposedInstaller_Light,
-			R.style.Theme_XposedInstaller_Dark,
-			R.style.Theme_XposedInstaller_Dark_Black, };
+	private static int[] THEMES = new int[]{
+			R.style.Theme_XposedInstaller_Dark_Black,
+			R.style.Theme_XposedInstaller_Dark_Blue,
+			R.style.Theme_XposedInstaller_Dark_Teal,
+			R.style.Theme_XposedInstaller_Dark_Red,
+			R.style.Theme_XposedInstaller_Dark_BlueGrey,
+	};
 
 	private ThemeUtil() {
 	}
@@ -35,7 +38,7 @@ public final class ThemeUtil {
 
 	public static int getThemeColor(Context context, int id) {
 		Theme theme = context.getTheme();
-		TypedArray a = theme.obtainStyledAttributes(new int[] { id });
+		TypedArray a = theme.obtainStyledAttributes(new int[]{id});
 		int result = a.getColor(0, 0);
 		a.recycle();
 		return result;
