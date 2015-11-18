@@ -10,7 +10,9 @@
 
     <!-- Base application dark theme. -->
     <style name="Theme.XposedInstaller.Dark.Base" parent="Theme.AppCompat.NoActionBar">
-
+        <item name="android:windowBackground">@color/background_material_dark</item>
+        <item name="sticky_header_background">@color/sticky_header_background_dark</item>
+        <item name="list_download_item_color">@color/list_download_item_color_dark</item>
     </style>
 
     <style name="Theme.XposedInstaller.Light" parent="Theme.XposedInstaller.Light.Base">
