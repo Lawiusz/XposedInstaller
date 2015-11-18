@@ -9,7 +9,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 37
-        versionName "4.0_material_Lawiusz"
+        versionName "4.UNSTABLE_material_Lawiusz"
         project.ext.set("archivesBaseName", "XposedInstaller_material_Lawiusz");
 
     }
