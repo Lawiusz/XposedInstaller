@@ -33,7 +33,7 @@ import java.io.Reader;
 import java.util.Calendar;
 
 public class LogsFragment extends Fragment {
-	private static final int MAX_LOG_SIZE = 2 * 1024 * 1024; // 2 MB
+	private static final int MAX_LOG_SIZE = 10 * 1024; // 10 KB
 	private File mFileErrorLog = new File(XposedApp.BASE_DIR + "log/error.log");
 	private File mFileErrorLogOld = new File(
 			XposedApp.BASE_DIR + "log/error.log.old");
