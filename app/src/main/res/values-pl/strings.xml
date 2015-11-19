@@ -238,5 +238,7 @@
     <string name="support_framework_label">Pomoc dotycząca frameworka i instalatora</string>
     <string name="support_modules_description">Przytrzymaj dany moduł na liście i wybierz \"%1$s\".</string>
     <string name="support_modules_label">Wsparcie dotyczące modułów</string>
+    <string name="settings_theme_light_blue">Jasny </string>
+    <string name="settings_theme_light_bluegrey">Jasny </string>
 
 </resources>

@@ -19,7 +19,14 @@
     </string-array>
 
     <string-array name="theme_texts" translatable="false">
-        <item>@string/settings_theme_black</item>
+        <item>@string/settings_theme_light_teal</item>
+        <item>@string/settings_theme_light_blue</item>
+        <item>@string/settings_theme_light_red</item>
+        <item>@string/settings_theme_light_bluegrey</item>
+        <item>@string/settings_theme_light_purple</item>
+        <item>@string/settings_theme_light_orange</item>
+        <item>@string/settings_theme_light_pink</item>
+        <item>@string/settings_theme_light_green</item>
         <item>@string/settings_theme_dark_blue</item>
         <item>@string/settings_theme_dark_teal</item>
         <item>@string/settings_theme_dark_red</item>
@@ -27,6 +34,8 @@
         <item>@string/settings_theme_dark_purple</item>
         <item>@string/settings_theme_dark_orange</item>
         <item>@string/settings_theme_dark_pink</item>
+        <item>@string/settings_theme_dark_green</item>
+        <item>@string/settings_theme_black</item>
     </string-array>
 
     <string-array name="theme_values" translatable="false">
@@ -38,6 +47,15 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
     </string-array>
 
     <string-array name="default_view_texts" translatable="false">

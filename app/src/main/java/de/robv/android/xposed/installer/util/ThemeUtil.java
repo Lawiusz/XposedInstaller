@@ -10,14 +10,23 @@ import de.robv.android.xposed.installer.XposedBaseActivity;
 
 public final class ThemeUtil {
 	private static int[] THEMES = new int[]{
-			R.style.Theme_XposedInstaller_Dark_Black,
+			R.style.Theme_XposedInstaller_Light_Teal,
+			R.style.Theme_XposedInstaller_Light_Blue,
+			R.style.Theme_XposedInstaller_Light_Red,
+			R.style.Theme_XposedInstaller_Light_BlueGrey,
+			R.style.Theme_XposedInstaller_Light_Purple,
+			R.style.Theme_XposedInstaller_Light_Orange,
+			R.style.Theme_XposedInstaller_Light_Pink,
+			R.style.Theme_XposedInstaller_Light_Green,
 			R.style.Theme_XposedInstaller_Dark_Blue,
 			R.style.Theme_XposedInstaller_Dark_Teal,
 			R.style.Theme_XposedInstaller_Dark_Red,
 			R.style.Theme_XposedInstaller_Dark_BlueGrey,
 			R.style.Theme_XposedInstaller_Dark_Purple,
 			R.style.Theme_XposedInstaller_Dark_Orange,
-			R.style.Theme_XposedInstaller_Dark_Pink,};
+			R.style.Theme_XposedInstaller_Dark_Pink,
+			R.style.Theme_XposedInstaller_Dark_Green,
+			R.style.Theme_XposedInstaller_Dark_Black,};
 
 	private ThemeUtil() {
 	}
