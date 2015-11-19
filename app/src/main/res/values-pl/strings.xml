@@ -144,10 +144,26 @@
     <string name="settings_performance_experiment">Wyniki eksperymentu</string>
     <string name="settings_performance_experiment_summary">Jeśli to włączysz, wydajność systemu może albo się zwiększyć, zmniejszyć lub pozostać taka sama. Prosimy spróbować i zaraportować nam, który efekt widzisz. Musisz zainstalować ponownie framework i zresetować telefon po zmianie tego.</string>
     <string name="settings_group_app">Aplikacja</string>
+
+    <!-- Themes -->
     <string name="settings_theme">Temat</string>
-    <string name="settings_theme_light">Jasny</string>
-    <string name="settings_theme_dark">Ciemny</string>
-    <string name="settings_theme_black">Czarny (użyteczne dla ekranów AMOLED)</string>
+    <string name="settings_theme_light_teal">Jasny <font color="#00695C">Turkusowy</font></string>
+    <string name="settings_theme_light_blue">Jasny <font color="#1565C0">Niebieski</font></string>
+    <string name="settings_theme_light_red">Jasny <font color="#B71C1C">Czerwony</font></string>
+    <string name="settings_theme_light_bluegrey">Jasny <font color="#455A64">Szaroniebieski</font></string>
+    <string name="settings_theme_light_purple">Jasny <font color="#9C27B0">Fioletowy</font></string>
+    <string name="settings_theme_light_orange">Jasny <font color="#E65100">Pomarańczowy</font></string>
+    <string name="settings_theme_light_pink">Jasny <font color="#C2185B">Różowy</font></string>
+    <string name="settings_theme_light_green">Jasny <font color="#2E7D32">Zielony</font></string>
+    <string name="settings_theme_dark_blue">Ciemny <font color="#1565C0">Niebieski</font></string>
+    <string name="settings_theme_dark_teal">Ciemny <font color="#00695C">Turkusowy</font></string>
+    <string name="settings_theme_dark_red">Ciemny <font color="#B71C1C">Czerwony</font></string>
+    <string name="settings_theme_dark_bluegrey">Ciemny <font color="#455A64">Szaroniebieski</font></string>
+    <string name="settings_theme_dark_purple">Ciemny <font color="#9C27B0">Fioletowy</font></string>
+    <string name="settings_theme_dark_orange">Ciemny <font color="#E65100">Pomarańczowy</font></string>
+    <string name="settings_theme_dark_pink">Ciemny <font color="#C2185B">Różowy</font></string>
+    <string name="settings_theme_dark_green">Ciemny <font color="#2E7D32">Zielony</font></string>
+    <string name="settings_theme_black"><font color="#000000">Czarny</font> (użyteczne dla ekranów AMOLED)</string>
 
     <!-- Support tab -->
 
@@ -163,7 +179,7 @@
 
     <!-- About tab -->
     <string name="about_developers_label">Moi deweloperzy:</string>
-    <string name="about_developers"><a href="http://forum.xda-developers.com/member.php?u=4419114">rovo89</a> oraz <a href="http://forum.xda-developers.com/member.php?u=4322181">Tungstwenty</a></string>
+    <string name="about_developers"><a href="http://forum.xda-developers.com/member.php?u=4419114">rovo89</a> oraz <a href="http://forum.xda-developers.com/member.php?u=4322181">Tungstwenty</a>\n<a href="http://forum.xda-developers.com/member.php?u=4756862">-BioHaZard-</a> oraz <a href="http://forum.xda-developers.com/member.php?u=5345056">dvdandroid</a> (Poprawki błędów i Material Design) \n<a href="http://forum.xda-developers.com/member.php?u=3012760">Lawiusz</a> (Poprawki błędów i motywy) </string>
     <string name="about_developers_warning">Proszę nie kontaktować się z nimi bezpośrednio. Użyj poniższego linku.</string>
     <string name="about_translator_label">Tłumacz:</string>
     <string name="translator">czeci, Lawiusz</string>
@@ -238,7 +254,5 @@
     <string name="support_framework_label">Pomoc dotycząca frameworka i instalatora</string>
     <string name="support_modules_description">Przytrzymaj dany moduł na liście i wybierz \"%1$s\".</string>
     <string name="support_modules_label">Wsparcie dotyczące modułów</string>
-    <string name="settings_theme_light_blue">Jasny </string>
-    <string name="settings_theme_light_bluegrey">Jasny </string>
 
 </resources>

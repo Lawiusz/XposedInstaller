@@ -164,22 +164,22 @@
 
     <!-- Themes -->
     <string name="settings_theme">Theme</string>
-    <string name="settings_theme_light_teal">Light<font color="#00695C"> Teal</font></string>
+    <string name="settings_theme_light_teal">Light <font color="#00695C">Teal</font></string>
     <string name="settings_theme_light_blue">Light <font color="#1565C0">Blue</font></string>
     <string name="settings_theme_light_red">Light <font color="#B71C1C">Red</font></string>
     <string name="settings_theme_light_bluegrey">Light <font color="#455A64">Blue Grey</font></string>
     <string name="settings_theme_light_purple">Light <font color="#9C27B0"> Purple</font></string>
-    <string name="settings_theme_light_orange">Light <font color="#E65100"> Orange</font></string>
-    <string name="settings_theme_light_pink"> Light <font color="#C2185B">Pink</font></string>
-    <string name="settings_theme_light_green">Light <font color="#2E7D32"> Green</font></string>
+    <string name="settings_theme_light_orange">Light <font color="#E65100">Orange</font></string>
+    <string name="settings_theme_light_pink">Light <font color="#C2185B">Pink</font></string>
+    <string name="settings_theme_light_green">Light <font color="#2E7D32">Green</font></string>
     <string name="settings_theme_dark_blue">Dark <font color="#1565C0">Blue</font></string>
-    <string name="settings_theme_dark_teal">Dark<font color="#00695C"> Teal</font></string>
-    <string name="settings_theme_dark_red">Dark<font color="#B71C1C"> Red</font></string>
+    <string name="settings_theme_dark_teal">Dark <font color="#00695C">Teal</font></string>
+    <string name="settings_theme_dark_red">Dark <font color="#B71C1C">Red</font></string>
     <string name="settings_theme_dark_bluegrey">Dark <font color="#455A64">Blue Grey</font></string>
-    <string name="settings_theme_dark_purple">Dark <font color="#9C27B0"> Purple</font></string>
-    <string name="settings_theme_dark_orange">Dark <font color="#E65100"> Orange</font></string>
-    <string name="settings_theme_dark_pink"> Dark <font color="#C2185B">Pink</font></string>
-    <string name="settings_theme_dark_green">Dark <font color="#2E7D32"> Green</font></string>
+    <string name="settings_theme_dark_purple">Dark <font color="#9C27B0">Purple</font></string>
+    <string name="settings_theme_dark_orange">Dark <font color="#E65100">Orange</font></string>
+    <string name="settings_theme_dark_pink">Dark <font color="#C2185B">Pink</font></string>
+    <string name="settings_theme_dark_green">Dark <font color="#2E7D32">Green</font></string>
     <string name="settings_theme_black">Black (useful for AMOLED screens)</string>
 
 
