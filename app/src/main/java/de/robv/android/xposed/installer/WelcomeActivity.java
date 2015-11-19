@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+
 import de.robv.android.xposed.installer.util.ModuleUtil;
 import de.robv.android.xposed.installer.util.ModuleUtil.InstalledModule;
 import de.robv.android.xposed.installer.util.ModuleUtil.ModuleListener;
@@ -48,6 +49,9 @@ public class WelcomeActivity extends XposedBaseActivity
 
 		mNavigationView = (NavigationView) findViewById(R.id.navigation_view);
 		mNavigationView.setNavigationItemSelectedListener(this);
+
+        mDrawerLayout.setStatusBarBackgroundColor(
+                darkenColor(XposedApp.getColor(this), 0.85f));
 
 		ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this,
 				mDrawerLayout, mToolbar, R.string.navigation_drawer_open,
@@ -80,16 +84,7 @@ public class WelcomeActivity extends XposedBaseActivity
 
 		notifyDataSetChanged();
 	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-
-		mDrawerLayout.setStatusBarBackgroundColor(
-				darkenColor(XposedApp.getColor(this), 0.85f));
-
-	}
-
+    
 	public void switchFragment(int itemId) {
 		mSelectedId = mNavigationView.getMenu().getItem(itemId).getItemId();
 		mNavigationView.getMenu().findItem(mSelectedId).setChecked(true);
