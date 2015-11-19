@@ -169,6 +169,9 @@
     <string name="settings_theme_dark_teal">Dark Teal</string>
     <string name="settings_theme_dark_red">Dark Red</string>
     <string name="settings_theme_dark_bluegrey">Dark Blue Grey</string>
+    <string name="settings_theme_dark_purple">Dark Purple</string>
+    <string name="settings_theme_dark_orange">Dark Orange</string>
+    <string name="settings_theme_dark_pink">Dark Pink</string>
 
 
 

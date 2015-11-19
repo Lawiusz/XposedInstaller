@@ -15,7 +15,9 @@ public final class ThemeUtil {
 			R.style.Theme_XposedInstaller_Dark_Teal,
 			R.style.Theme_XposedInstaller_Dark_Red,
 			R.style.Theme_XposedInstaller_Dark_BlueGrey,
-	};
+			R.style.Theme_XposedInstaller_Dark_Purple,
+			R.style.Theme_XposedInstaller_Dark_Orange,
+			R.style.Theme_XposedInstaller_Dark_Pink,};
 
 	private ThemeUtil() {
 	}

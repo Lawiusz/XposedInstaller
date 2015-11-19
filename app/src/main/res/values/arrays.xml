@@ -24,6 +24,9 @@
         <item>@string/settings_theme_dark_teal</item>
         <item>@string/settings_theme_dark_red</item>
         <item>@string/settings_theme_dark_bluegrey</item>
+        <item>@string/settings_theme_dark_purple</item>
+        <item>@string/settings_theme_dark_orange</item>
+        <item>@string/settings_theme_dark_pink</item>
     </string-array>
 
     <string-array name="theme_values" translatable="false">
@@ -32,6 +35,9 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
     </string-array>
 
     <string-array name="default_view_texts" translatable="false">
@@ -69,7 +75,6 @@
     </string-array>
 
     <string-array name="module_release_type_values" translatable="false">
-        <item></item>
         <item>stable</item>
         <item>beta</item>
         <item>experimental</item>
