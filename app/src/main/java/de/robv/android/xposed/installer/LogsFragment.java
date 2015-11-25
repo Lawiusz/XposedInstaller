@@ -22,9 +22,6 @@ import android.widget.HorizontalScrollView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.util.Log;
-
-import com.afollestad.materialdialogs.MaterialDialog;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -41,7 +38,6 @@ public class LogsFragment extends Fragment {
 	private TextView mTxtLog;
 	private ScrollView mSVLog;
 	private HorizontalScrollView mHSVLog;
-	MaterialDialog dialog;
 
 
 	@Override
@@ -57,21 +53,9 @@ public class LogsFragment extends Fragment {
 		mTxtLog.setTextIsSelectable(true);
 		mSVLog = (ScrollView) v.findViewById(R.id.svLog);
 		mHSVLog = (HorizontalScrollView) v.findViewById(R.id.hsvLog);
-		dialog = new MaterialDialog.Builder(v.getContext())
-				.title(R.string.logs_loading)
-				.content(R.string.logs_load_please_wait)
-				.progress(true, 0)
-				.show();
-		dialog.show();
-		long startTime = System.nanoTime();
 		LoadLog task = new LoadLog(getActivity(), v);
 		task.execute(mFileErrorLog);
 		reloadErrorLog();
-		long stopTime = System.nanoTime();
-		String executionTime = Long.toString(stopTime - startTime);
-		Log.d(XposedApp.TAG, executionTime);
-
-		dialog.dismiss();
 		return v;
 	}
 
@@ -84,6 +68,8 @@ public class LogsFragment extends Fragment {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			case R.id.menu_refresh:
+				LoadLog task = new LoadLog(getActivity(), getView());
+				task.execute(mFileErrorLog);
 				reloadErrorLog();
 				return true;
 			case R.id.menu_send:
@@ -120,6 +106,8 @@ public class LogsFragment extends Fragment {
 			mFileErrorLogOld.delete();
 			Toast.makeText(getActivity(), R.string.logs_cleared,
 					Toast.LENGTH_SHORT).show();
+			LoadLog task = new LoadLog(getActivity(), getView());
+			task.execute(mFileErrorLog);
 			reloadErrorLog();
 		} catch (IOException e) {
 			Toast.makeText(getActivity(),
@@ -185,20 +173,7 @@ public class LogsFragment extends Fragment {
 		try {
 			FileInputStream in = new FileInputStream(mFileErrorLog);
 			FileOutputStream out = new FileOutputStream(targetFile);
-/*
-			long skipped = skipLargeFile(in, mFileErrorLog.length());
-			if (skipped > 0) {
-				StringBuilder logContent = new StringBuilder(512);
-				logContent.append("-----------------\n");
-				logContent
-						.append(getResources().getString(R.string.log_too_large,
-								MAX_LOG_SIZE / 1024, skipped / 1024));
-				logContent.append("\n-----------------\n\n");
-				out.write(logContent.toString().getBytes());
-
-			}
-*/
-			byte[] buffer = new byte[1024];
+		byte[] buffer = new byte[1024];
 			int len;
 			while ((len = in.read(buffer)) > 0) {
 				out.write(buffer, 0, len);

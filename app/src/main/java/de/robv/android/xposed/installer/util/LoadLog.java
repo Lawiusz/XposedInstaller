@@ -17,7 +17,7 @@ import static de.robv.android.xposed.installer.R.*;
 public class LoadLog extends AsyncTask<File, Integer, String> {
 
     public Context mcontext;
-    private static final int MAX_LOG_SIZE = 1000 * 1024; // 1000 KB
+    private static final int MAX_LOG_SIZE = 100 * 1024; // 100 KB
     private View rootView;
     public LoadLog(Context context, View rootView ){
         this.mcontext = context;
@@ -58,8 +58,10 @@ public class LoadLog extends AsyncTask<File, Integer, String> {
                             br = new BufferedReader(new FileReader(logfile));
                             long skipped = skipLargeFile(br, logfile.length());
                             if (skipped > 0) {
+                                String SmaxLogSize = Integer.toString(MAX_LOG_SIZE / 1024);
+                                String Sskipped = Long.toString(skipped / 1024);
                                 llog.append("-----------------\n");
-       /* FIXME! */                        llog.append("Log too long" );
+                                llog.append("Log too large. Allowed "+SmaxLogSize+"KB, skipped " +Sskipped+" KB");
                                 llog.append("\n-----------------\n\n");
                             }
 
@@ -83,6 +85,6 @@ public class LoadLog extends AsyncTask<File, Integer, String> {
                         Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
                         TextView mTxtLog;
                         mTxtLog = (TextView) rootView.findViewById(id.txtLog);
-                        mTxtLog.append(llog);
+                        mTxtLog.setText(llog);
                         }
                     }
