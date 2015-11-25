@@ -196,6 +196,9 @@
     <string name="support_donate_description">If you would like to say thanks for Xposed, you can donate to rovo89 here:</string>
 
     <!-- Logs tab  -->
+    <string name="logs_load_please_wait">Please wait</string>
+    <string name="logs_load_done">Done!</string>
+    <string name="logs_loading">Loading log</string>
     <string name="logs_load_failed">Could not read log:</string>
     <string name="logs_save_failed">Could not write log to SD card:</string>
     <string name="sdcard_not_writable">SD card not found or not writable</string>

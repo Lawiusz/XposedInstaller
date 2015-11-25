@@ -2,6 +2,7 @@ package de.robv.android.xposed.installer;
 
 import static de.robv.android.xposed.installer.XposedApp.darkenColor;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import de.robv.android.xposed.installer.util.ModuleUtil.ModuleListener;
 import de.robv.android.xposed.installer.util.RepoLoader;
 import de.robv.android.xposed.installer.util.RepoLoader.RepoListener;
 import de.robv.android.xposed.installer.util.ThemeUtil;
+import de.robv.android.xposed.installer.util.LContext;
 
 public class WelcomeActivity extends XposedBaseActivity
 		implements NavigationView.OnNavigationItemSelectedListener,
@@ -37,7 +39,6 @@ public class WelcomeActivity extends XposedBaseActivity
 	private NavigationView mNavigationView;
 	private int mPrevSelectedId;
 	private int mSelectedId;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,7 +53,7 @@ public class WelcomeActivity extends XposedBaseActivity
 		mNavigationView.setNavigationItemSelectedListener(this);
 
         mDrawerLayout.setStatusBarBackgroundColor(
-                darkenColor(XposedApp.getColor(this), 0.85f));
+				darkenColor(XposedApp.getColor(this), 0.85f));
 
 		ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this,
 				mDrawerLayout, mToolbar, R.string.navigation_drawer_open,
@@ -78,6 +79,7 @@ public class WelcomeActivity extends XposedBaseActivity
 				}
 			}, 250);
 			mDrawerLayout.closeDrawers();
+			LContext.setContext(getApplicationContext());
 		}
 
 		mRepoLoader = RepoLoader.getInstance();
@@ -86,7 +88,7 @@ public class WelcomeActivity extends XposedBaseActivity
 
 		notifyDataSetChanged();
 	}
-    
+
 	public void switchFragment(int itemId) {
 		mSelectedId = mNavigationView.getMenu().getItem(itemId).getItemId();
 		mNavigationView.getMenu().findItem(mSelectedId).setChecked(true);
@@ -109,7 +111,7 @@ public class WelcomeActivity extends XposedBaseActivity
 				navFragment = new InstallerFragment();
 				break;
 			case R.id.drawer_item_2:
-				mPrevSelectedId = itemId;	
+				mPrevSelectedId = itemId;
 				setTitle(R.string.nav_item_modules);
 				navFragment = new ModulesFragment();
 				break;

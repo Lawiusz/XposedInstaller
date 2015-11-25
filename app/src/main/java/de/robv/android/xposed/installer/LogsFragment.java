@@ -22,24 +22,27 @@ import android.widget.HorizontalScrollView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
+
+import com.afollestad.materialdialogs.MaterialDialog;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.Calendar;
 
+import de.robv.android.xposed.installer.util.LoadLog;
+
 public class LogsFragment extends Fragment {
-	private static final int MAX_LOG_SIZE = 10 * 1024; // 10 KB
 	private File mFileErrorLog = new File(XposedApp.BASE_DIR + "log/error.log");
 	private File mFileErrorLogOld = new File(
 			XposedApp.BASE_DIR + "log/error.log.old");
 	private TextView mTxtLog;
 	private ScrollView mSVLog;
 	private HorizontalScrollView mHSVLog;
+	MaterialDialog dialog;
+
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -48,14 +51,27 @@ public class LogsFragment extends Fragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.tab_logs, container, false);
 		mTxtLog = (TextView) v.findViewById(R.id.txtLog);
 		mTxtLog.setTextIsSelectable(true);
 		mSVLog = (ScrollView) v.findViewById(R.id.svLog);
 		mHSVLog = (HorizontalScrollView) v.findViewById(R.id.hsvLog);
+		dialog = new MaterialDialog.Builder(v.getContext())
+				.title(R.string.logs_loading)
+				.content(R.string.logs_load_please_wait)
+				.progress(true, 0)
+				.show();
+		dialog.show();
+		long startTime = System.nanoTime();
+		LoadLog task = new LoadLog(getActivity(), v);
+		task.execute(mFileErrorLog);
 		reloadErrorLog();
+		long stopTime = System.nanoTime();
+		String executionTime = Long.toString(stopTime - startTime);
+		Log.d(XposedApp.TAG, executionTime);
+
+		dialog.dismiss();
 		return v;
 	}
 
@@ -83,37 +99,7 @@ public class LogsFragment extends Fragment {
 		return super.onOptionsItemSelected(item);
 	}
 
-	private void reloadErrorLog() {
-		StringBuilder logContent = new StringBuilder(15 * 1024);
-		try {
-			FileInputStream fis = new FileInputStream(mFileErrorLog);
-			long skipped = skipLargeFile(fis, mFileErrorLog.length());
-			if (skipped > 0) {
-				logContent.append("-----------------\n");
-				logContent
-						.append(getResources().getString(R.string.log_too_large,
-								MAX_LOG_SIZE / 1024, skipped / 1024));
-				logContent.append("\n-----------------\n\n");
-			}
-			Reader reader = new InputStreamReader(fis);
-			char[] temp = new char[1024];
-			int read;
-			while ((read = reader.read(temp)) > 0) {
-				logContent.append(temp, 0, read);
-			}
-			reader.close();
-		} catch (IOException e) {
-			logContent.append(
-					getResources().getString(R.string.logs_load_failed));
-			logContent.append('\n');
-			logContent.append(e.getMessage());
-		}
-
-		if (logContent.length() > 0)
-			mTxtLog.setText(logContent.toString());
-		else
-			mTxtLog.setText(R.string.log_is_empty);
-
+	public void reloadErrorLog(){
 		mSVLog.post(new Runnable() {
 			@Override
 			public void run() {
@@ -140,7 +126,6 @@ public class LogsFragment extends Fragment {
 					getResources().getString(R.string.logs_clear_failed) + "\n"
 							+ e.getMessage(),
 					Toast.LENGTH_LONG).show();
-			return;
 		}
 	}
 
@@ -200,7 +185,7 @@ public class LogsFragment extends Fragment {
 		try {
 			FileInputStream in = new FileInputStream(mFileErrorLog);
 			FileOutputStream out = new FileOutputStream(targetFile);
-
+/*
 			long skipped = skipLargeFile(in, mFileErrorLog.length());
 			if (skipped > 0) {
 				StringBuilder logContent = new StringBuilder(512);
@@ -210,8 +195,9 @@ public class LogsFragment extends Fragment {
 								MAX_LOG_SIZE / 1024, skipped / 1024));
 				logContent.append("\n-----------------\n\n");
 				out.write(logContent.toString().getBytes());
-			}
 
+			}
+*/
 			byte[] buffer = new byte[1024];
 			int len;
 			while ((len = in.read(buffer)) > 0) {
@@ -231,24 +217,4 @@ public class LogsFragment extends Fragment {
 				.show();
 	}
 
-	private long skipLargeFile(InputStream is, long length) throws IOException {
-		if (length < MAX_LOG_SIZE)
-			return 0;
-
-		long skipped = length - MAX_LOG_SIZE;
-		long yetToSkip = skipped;
-		do {
-			yetToSkip -= is.skip(yetToSkip);
-		} while (yetToSkip > 0);
-
-		int c;
-		do {
-			c = is.read();
-			if (c == -1)
-				break;
-			skipped++;
-		} while (c != '\n');
-
-		return skipped;
-	}
 }
