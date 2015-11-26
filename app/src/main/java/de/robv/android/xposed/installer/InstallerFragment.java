@@ -2,11 +2,11 @@ package de.robv.android.xposed.installer;
 
 import android.app.Activity;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,36 +16,17 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 
 import de.robv.android.xposed.installer.util.AssetUtil;
-import de.robv.android.xposed.installer.util.NavUtil;
 import de.robv.android.xposed.installer.util.NotificationUtil;
 import de.robv.android.xposed.installer.util.RootUtil;
-import de.robv.android.xposed.installer.util.ThemeUtil;
+
 
 public class InstallerFragment extends Fragment {
-	private static final String JAR_PATH = "/system/framework/XposedBridge.jar";
-	private static final String JAR_PATH_NEWVERSION = JAR_PATH + ".newversion";
-	private static final String PREF_LAST_SEEN_BINARY = "last_seen_binary";
-	private static final int INSTALL_MODE_NORMAL = 0;
-	private static final int INSTALL_MODE_RECOVERY_AUTO = 1;
-	private static final int INSTALL_MODE_RECOVERY_MANUAL = 2;
-	private final String BINARIES_FOLDER = AssetUtil.getBinariesFolder();
-	private final LinkedList<String> mCompatibilityErrors = new LinkedList<String>();
-	private String APP_PROCESS_NAME = null;
 	private RootUtil mRootUtil = new RootUtil();
-	private boolean mHadSegmentationFault = false;
 	private MaterialDialog.Builder dlgProgress;
-	private TextView txtInstallError, txtKnownIssue;
-	private Button btnInstallMode, btnInstall, btnUninstall, btnSoftReboot,
-			btnReboot;
 
 	private static int extractIntPart(String str) {
 		int result = 0, length = str.length();
@@ -57,15 +38,6 @@ public class InstallerFragment extends Fragment {
 				break;
 		}
 		return result;
-	}
-
-	private static boolean checkClassExists(String className) {
-		try {
-			Class.forName(className);
-			return true;
-		} catch (ClassNotFoundException e) {
-			return false;
-		}
 	}
 
 	@Override
@@ -80,25 +52,14 @@ public class InstallerFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.tab_installer, container, false);
-
-		btnInstallMode = (Button) v.findViewById(R.id.framework_install_mode);
-		txtInstallError = (TextView) v
+		TextView txtInstallError = (TextView) v
 				.findViewById(R.id.framework_install_errors);
-		txtKnownIssue = (TextView) v.findViewById(R.id.framework_known_issue);
+		TextView xposedThread = (TextView) v.findViewById(R.id.xposed_xda_thread);
+		xposedThread.setMovementMethod(LinkMovementMethod.getInstance());
+		Button btnSoftReboot = (Button) v.findViewById(R.id.btnSoftReboot);
+		Button btnReboot = (Button) v.findViewById(R.id.btnReboot);
+		Button btnRebootRecovery = (Button) v.findViewById(R.id.btnRebootRecovery);
 
-		btnInstall = (Button) v.findViewById(R.id.btnInstall);
-		btnUninstall = (Button) v.findViewById(R.id.btnUninstall);
-		btnSoftReboot = (Button) v.findViewById(R.id.btnSoftReboot);
-		btnReboot = (Button) v.findViewById(R.id.btnReboot);
-
-		btnInstallMode.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(getActivity(),
-						SettingsActivity.class);
-				startActivity(intent);
-			}
-		});
 
 		// FIXME
 		/*
@@ -195,21 +156,32 @@ public class InstallerFragment extends Fragment {
 		}
 		txtInstallError.setVisibility(View.VISIBLE);
 
-		btnInstall.setEnabled(false);
-		btnInstallMode.setEnabled(false);
-		btnUninstall.setEnabled(false);
 
 		btnReboot.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				areYouSure(R.string.reboot,
 						new MaterialDialog.ButtonCallback() {
-					@Override
-					public void onPositive(MaterialDialog dialog) {
-						super.onPositive(dialog);
-						reboot(null);
-					}
-				});
+							@Override
+							public void onPositive(MaterialDialog dialog) {
+								super.onPositive(dialog);
+								reboot(null);
+							}
+						});
+			}
+		});
+
+		btnRebootRecovery.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				areYouSure(R.string.recovery_reboot,
+						new MaterialDialog.ButtonCallback() {
+							@Override
+							public void onPositive(MaterialDialog dialog) {
+								super.onPositive(dialog);
+								reboot("recovery");
+							}
+						});
 			}
 		});
 
@@ -218,12 +190,12 @@ public class InstallerFragment extends Fragment {
 			public void onClick(View v) {
 				areYouSure(R.string.soft_reboot,
 						new MaterialDialog.ButtonCallback() {
-					@Override
-					public void onPositive(MaterialDialog dialog) {
-						super.onPositive(dialog);
-						softReboot();
-					}
-				});
+							@Override
+							public void onPositive(MaterialDialog dialog) {
+								super.onPositive(dialog);
+								softReboot();
+							}
+						});
 			}
 		});
 
@@ -296,70 +268,13 @@ public class InstallerFragment extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-		btnInstallMode.setText(getInstallModeText());
 		NotificationUtil.cancel(NotificationUtil.NOTIFICATION_MODULES_UPDATED);
-		mHadSegmentationFault = false;
-		refreshKnownIssue();
 	}
 
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
 		mRootUtil.dispose();
-	}
-
-	private String versionToText(int version) {
-		return (version == 0) ? getString(R.string.none)
-				: Integer.toString(version);
-	}
-
-	private void refreshKnownIssue() {
-		String issueName = null;
-		String issueLink = null;
-
-		if (new File("/system/framework/core.jar.jex").exists()) {
-			issueName = "Aliyun OS";
-			issueLink = "http://forum.xda-developers.com/showpost.php?p=52289793&postcount=5";
-
-		} else if (new File("/data/miui/DexspyInstaller.jar").exists()
-				|| checkClassExists("miui.dexspy.DexspyInstaller")) {
-			issueName = "MIUI/Dexspy";
-			issueLink = "http://forum.xda-developers.com/showpost.php?p=52291098&postcount=6";
-
-		} else if (mHadSegmentationFault) {
-			issueName = "Segmentation fault";
-			issueLink = "http://forum.xda-developers.com/showpost.php?p=52292102&postcount=7";
-
-		} else
-			if (checkClassExists("com.huawei.android.content.res.ResourcesEx")
-					|| checkClassExists("android.content.res.NubiaResources")) {
-			issueName = "Resources subclass";
-			issueLink = "http://forum.xda-developers.com/showpost.php?p=52801382&postcount=8";
-		}
-
-		if (issueName != null) {
-			final String issueLinkFinal = issueLink;
-			txtKnownIssue.setText(
-					getString(R.string.install_known_issue, issueName));
-			txtKnownIssue.setVisibility(View.VISIBLE);
-			txtKnownIssue.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					NavUtil.startURL(getActivity(), issueLinkFinal);
-				}
-			});
-			if (btnInstall.isEnabled())
-				btnInstall
-						.setTextColor(getResources().getColor(R.color.warning));
-			txtInstallError.setTextColor(ThemeUtil.getThemeColor(getActivity(),
-					android.R.attr.textColorTertiary));
-		} else {
-			txtKnownIssue.setVisibility(View.GONE);
-			// FIXME
-			// btnInstall.setTextColor(ThemeUtil.getThemeColor(getActivity(),
-			// android.R.attr.textColorPrimary));
-			// txtInstallError.setTextColor(getResources().getColor(R.color.warning));
-		}
 	}
 
 	private void showAlert(final String result) {
@@ -380,10 +295,6 @@ public class InstallerFragment extends Fragment {
 		TextView txtMessage = (TextView) dialog
 				.findViewById(android.R.id.message);
 		txtMessage.setTextSize(14);
-
-		mHadSegmentationFault = result.toLowerCase(Locale.US)
-				.contains("segmentation fault");
-		refreshKnownIssue();
 	}
 
 	private void areYouSure(int messageTextId,
@@ -395,75 +306,6 @@ public class InstallerFragment extends Fragment {
 				.negativeText(android.R.string.no).callback(yesHandler).show();
 	}
 
-	private void showConfirmDialog(final String message,
-			final MaterialDialog.ButtonCallback callback) {
-		if (Looper.myLooper() != Looper.getMainLooper()) {
-			getActivity().runOnUiThread(new Runnable() {
-				@Override
-				public void run() {
-					showConfirmDialog(message, callback);
-				}
-			});
-			return;
-		}
-
-		MaterialDialog dialog = new MaterialDialog.Builder(getActivity())
-				.content(message).positiveText(android.R.string.yes)
-				.negativeText(android.R.string.no).callback(callback).build();
-
-		TextView txtMessage = (TextView) dialog
-				.findViewById(android.R.id.message);
-		txtMessage.setTextSize(14);
-
-		mHadSegmentationFault = message.toLowerCase(Locale.US)
-				.contains("segmentation fault");
-		refreshKnownIssue();
-	}
-
-	private boolean checkCompatibility() {
-		mCompatibilityErrors.clear();
-		return checkAppProcessCompatibility();
-	}
-
-	private boolean checkAppProcessCompatibility() {
-		try {
-			if (APP_PROCESS_NAME == null)
-				return false;
-
-			File testFile = AssetUtil.writeAssetToCacheFile(APP_PROCESS_NAME,
-					"app_process", 00700);
-			if (testFile == null) {
-				mCompatibilityErrors
-						.add("could not write app_process to cache");
-				return false;
-			}
-
-			Process p = Runtime.getRuntime().exec(new String[] {
-					testFile.getAbsolutePath(), "--xposedversion" });
-
-			BufferedReader stdout = new BufferedReader(
-					new InputStreamReader(p.getInputStream()));
-			String result = stdout.readLine();
-			stdout.close();
-
-			BufferedReader stderr = new BufferedReader(
-					new InputStreamReader(p.getErrorStream()));
-			String errorLine;
-			while ((errorLine = stderr.readLine()) != null) {
-				mCompatibilityErrors.add(errorLine);
-			}
-			stderr.close();
-
-			p.destroy();
-
-			testFile.delete();
-			return result != null && result.startsWith("Xposed version: ");
-		} catch (IOException e) {
-			mCompatibilityErrors.add(e.getMessage());
-			return false;
-		}
-	}
-
 	private boolean startShell() {
 		if (mRootUtil.startShell())
 			return true;
@@ -472,365 +314,6 @@ public class InstallerFragment extends Fragment {
 		return false;
 	}
 
-	private int getInstallMode() {
-		int mode = XposedApp.getPreferences().getInt("install_mode",
-				INSTALL_MODE_NORMAL);
-		if (mode < INSTALL_MODE_NORMAL || mode > INSTALL_MODE_RECOVERY_MANUAL)
-			mode = INSTALL_MODE_NORMAL;
-		return mode;
-	}
-
-	private String getInstallModeText() {
-		final int installMode = getInstallMode();
-		switch (installMode) {
-			case INSTALL_MODE_NORMAL:
-				return getString(R.string.install_mode_normal);
-			case INSTALL_MODE_RECOVERY_AUTO:
-				return getString(R.string.install_mode_recovery_auto);
-			case INSTALL_MODE_RECOVERY_MANUAL:
-				return getString(R.string.install_mode_recovery_manual);
-		}
-		throw new IllegalStateException("unknown install mode " + installMode);
-	}
-
-	private boolean install() {
-		final int installMode = getInstallMode();
-
-		if (!startShell())
-			return false;
-
-		List<String> messages = new LinkedList<String>();
-		boolean showAlert = true;
-		try {
-			messages.add(getString(R.string.sdcard_location,
-					XposedApp.getInstance().getExternalFilesDir(null)));
-			messages.add("");
-
-			messages.add(getString(R.string.file_copying,
-					"Xposed-Disabler-Recovery.zip"));
-			if (AssetUtil.writeAssetToSdcardFile("Xposed-Disabler-Recovery.zip",
-					00644) == null) {
-				messages.add("");
-				messages.add(getString(R.string.file_extract_failed,
-						"Xposed-Disabler-Recovery.zip"));
-				return false;
-			}
-
-			File appProcessFile = AssetUtil.writeAssetToFile(APP_PROCESS_NAME,
-					new File(XposedApp.BASE_DIR + "bin/app_process"), 00700);
-			if (appProcessFile == null) {
-				showAlert(
-						getString(R.string.file_extract_failed, "app_process"));
-				return false;
-			}
-
-			if (installMode == INSTALL_MODE_NORMAL) {
-				// Normal installation
-				messages.add(
-						getString(R.string.file_mounting_writable, "/system"));
-				if (mRootUtil.executeWithBusybox("mount -o remount,rw /system",
-						messages) != 0) {
-					messages.add(getString(R.string.file_mount_writable_failed,
-							"/system"));
-					messages.add(getString(R.string.file_trying_to_continue));
-				}
-
-				if (new File("/system/bin/app_process.orig").exists()) {
-					messages.add(getString(R.string.file_backup_already_exists,
-							"/system/bin/app_process.orig"));
-				} else {
-					if (mRootUtil.executeWithBusybox(
-							"cp -a /system/bin/app_process /system/bin/app_process.orig",
-							messages) != 0) {
-						messages.add("");
-						messages.add(getString(R.string.file_backup_failed,
-								"/system/bin/app_process"));
-						return false;
-					} else {
-						messages.add(getString(R.string.file_backup_successful,
-								"/system/bin/app_process.orig"));
-					}
-
-					mRootUtil.executeWithBusybox("sync", messages);
-				}
-
-				messages.add(getString(R.string.file_copying, "app_process"));
-				if (mRootUtil
-						.executeWithBusybox(
-								"cp -a " + appProcessFile.getAbsolutePath()
-										+ " /system/bin/app_process",
-								messages) != 0) {
-					messages.add("");
-					messages.add(getString(R.string.file_copy_failed,
-							"app_process", "/system/bin"));
-					return false;
-				}
-				if (mRootUtil.executeWithBusybox(
-						"chmod 755 /system/bin/app_process", messages) != 0) {
-					messages.add("");
-					messages.add(getString(R.string.file_set_perms_failed,
-							"/system/bin/app_process"));
-					return false;
-				}
-				if (mRootUtil.executeWithBusybox(
-						"chown root:shell /system/bin/app_process",
-						messages) != 0) {
-					messages.add("");
-					messages.add(getString(R.string.file_set_owner_failed,
-							"/system/bin/app_process"));
-					return false;
-				}
-
-			} else if (installMode == INSTALL_MODE_RECOVERY_AUTO) {
-				if (!prepareAutoFlash(messages,
-						"Xposed-Installer-Recovery.zip"))
-					return false;
-
-			} else if (installMode == INSTALL_MODE_RECOVERY_MANUAL) {
-				if (!prepareManualFlash(messages,
-						"Xposed-Installer-Recovery.zip"))
-					return false;
-			}
-
-			File blocker = new File(XposedApp.BASE_DIR + "conf/disabled");
-			if (blocker.exists()) {
-				messages.add(getString(R.string.file_removing,
-						blocker.getAbsolutePath()));
-				if (mRootUtil.executeWithBusybox(
-						"rm " + blocker.getAbsolutePath(), messages) != 0) {
-					messages.add("");
-					messages.add(getString(R.string.file_remove_failed,
-							blocker.getAbsolutePath()));
-					return false;
-				}
-			}
-
-			messages.add(getString(R.string.file_copying, "XposedBridge.jar"));
-			File jarFile = AssetUtil.writeAssetToFile("XposedBridge.jar",
-					new File(JAR_PATH_NEWVERSION), 00644);
-			if (jarFile == null) {
-				messages.add("");
-				messages.add(getString(R.string.file_extract_failed,
-						"XposedBridge.jar"));
-				return false;
-			}
-
-			mRootUtil.executeWithBusybox("sync", messages);
-
-			showAlert = false;
-			messages.add("");
-			if (installMode == INSTALL_MODE_NORMAL)
-				offerReboot(messages);
-			else
-				offerRebootToRecovery(messages, "Xposed-Installer-Recovery.zip",
-						installMode);
-
-			return true;
-
-		} finally {
-			AssetUtil.removeBusybox();
-
-			if (showAlert)
-				showAlert(TextUtils.join("\n", messages).trim());
-		}
-	}
-
-	private boolean uninstall() {
-		final int installMode = getInstallMode();
-
-		new File(JAR_PATH_NEWVERSION).delete();
-		new File(JAR_PATH).delete();
-		new File(XposedApp.BASE_DIR + "bin/app_process").delete();
-
-		if (!startShell())
-			return false;
-
-		List<String> messages = new LinkedList<String>();
-		boolean showAlert = true;
-		try {
-			messages.add(getString(R.string.sdcard_location,
-					XposedApp.getInstance().getExternalFilesDir(null)));
-			messages.add("");
-
-			if (installMode == INSTALL_MODE_NORMAL) {
-				messages.add(
-						getString(R.string.file_mounting_writable, "/system"));
-				if (mRootUtil.executeWithBusybox("mount -o remount,rw /system",
-						messages) != 0) {
-					messages.add(getString(R.string.file_mount_writable_failed,
-							"/system"));
-					messages.add(getString(R.string.file_trying_to_continue));
-				}
-
-				messages.add(getString(R.string.file_backup_restoring,
-						"/system/bin/app_process.orig"));
-				if (!new File("/system/bin/app_process.orig").exists()) {
-					messages.add("");
-					messages.add(getString(R.string.file_backup_not_found,
-							"/system/bin/app_process.orig"));
-					return false;
-				}
-
-				if (mRootUtil.executeWithBusybox(
-						"mv /system/bin/app_process.orig /system/bin/app_process",
-						messages) != 0) {
-					messages.add("");
-					messages.add(getString(R.string.file_move_failed,
-							"/system/bin/app_process.orig",
-							"/system/bin/app_process"));
-					return false;
-				}
-				if (mRootUtil.executeWithBusybox(
-						"chmod 755 /system/bin/app_process", messages) != 0) {
-					messages.add("");
-					messages.add(getString(R.string.file_set_perms_failed,
-							"/system/bin/app_process"));
-					return false;
-				}
-				if (mRootUtil.executeWithBusybox(
-						"chown root:shell /system/bin/app_process",
-						messages) != 0) {
-					messages.add("");
-					messages.add(getString(R.string.file_set_owner_failed,
-							"/system/bin/app_process"));
-					return false;
-				}
-				// Might help on some SELinux-enforced ROMs, shouldn't hurt on
-				// others
-				mRootUtil.execute(
-						"/system/bin/restorecon /system/bin/app_process", null);
-
-			} else if (installMode == INSTALL_MODE_RECOVERY_AUTO) {
-				if (!prepareAutoFlash(messages, "Xposed-Disabler-Recovery.zip"))
-					return false;
-
-			} else if (installMode == INSTALL_MODE_RECOVERY_MANUAL) {
-				if (!prepareManualFlash(messages,
-						"Xposed-Disabler-Recovery.zip"))
-					return false;
-			}
-
-			showAlert = false;
-			messages.add("");
-			if (installMode == INSTALL_MODE_NORMAL)
-				offerReboot(messages);
-			else
-				offerRebootToRecovery(messages, "Xposed-Disabler-Recovery.zip",
-						installMode);
-
-			return true;
-
-		} finally {
-			AssetUtil.removeBusybox();
-
-			if (showAlert)
-				showAlert(TextUtils.join("\n", messages).trim());
-		}
-	}
-
-	private boolean prepareAutoFlash(List<String> messages, String file) {
-		if (mRootUtil.execute("ls /cache/recovery", null) != 0) {
-			messages.add(getString(R.string.file_creating_directory,
-					"/cache/recovery"));
-			if (mRootUtil.executeWithBusybox("mkdir /cache/recovery",
-					messages) != 0) {
-				messages.add("");
-				messages.add(getString(R.string.file_create_directory_failed,
-						"/cache/recovery"));
-				return false;
-			}
-		}
-
-		messages.add(getString(R.string.file_copying, file));
-		File tempFile = AssetUtil.writeAssetToCacheFile(file, 00644);
-		if (tempFile == null) {
-			messages.add("");
-			messages.add(getString(R.string.file_extract_failed, file));
-			return false;
-		}
-
-		if (mRootUtil.executeWithBusybox("cp -a " + tempFile.getAbsolutePath()
-				+ " /cache/recovery/" + file, messages) != 0) {
-			messages.add("");
-			messages.add(getString(R.string.file_copy_failed, file, "/cache"));
-			tempFile.delete();
-			return false;
-		}
-
-		tempFile.delete();
-
-		messages.add(getString(R.string.file_writing_recovery_command));
-		if (mRootUtil.execute(
-				"echo \"--update_package=/cache/recovery/" + file
-						+ "\n--show_text\" > /cache/recovery/command",
-				messages) != 0) {
-			messages.add("");
-			messages.add(
-					getString(R.string.file_writing_recovery_command_failed));
-			return false;
-		}
-
-		return true;
-	}
-
-	private boolean prepareManualFlash(List<String> messages, String file) {
-		messages.add(getString(R.string.file_copying, file));
-		if (AssetUtil.writeAssetToSdcardFile(file, 00644) == null) {
-			messages.add("");
-			messages.add(getString(R.string.file_extract_failed, file));
-			return false;
-		}
-
-		return true;
-	}
-
-	private void offerReboot(List<String> messages) {
-		messages.add(getString(R.string.file_done));
-		messages.add("");
-		messages.add(getString(R.string.reboot_confirmation));
-		showConfirmDialog(TextUtils.join("\n", messages).trim(),
-				new MaterialDialog.ButtonCallback() {
-					@Override
-					public void onPositive(MaterialDialog dialog) {
-						super.onPositive(dialog);
-						reboot(null);
-					}
-				});
-	}
-
-	private void offerRebootToRecovery(List<String> messages, final String file,
-			final int installMode) {
-		if (installMode == INSTALL_MODE_RECOVERY_AUTO)
-			messages.add(getString(R.string.auto_flash_note, file));
-		else
-			messages.add(getString(R.string.manual_flash_note, file));
-
-		messages.add("");
-		messages.add(getString(R.string.reboot_recovery_confirmation));
-		showConfirmDialog(TextUtils.join("\n", messages).trim(),
-				new MaterialDialog.ButtonCallback() {
-					@Override
-					public void onPositive(MaterialDialog dialog) {
-						super.onPositive(dialog);
-						reboot("recovery");
-					}
-
-					@Override
-					public void onNegative(MaterialDialog dialog) {
-						super.onNegative(dialog);
-						if (installMode == INSTALL_MODE_RECOVERY_AUTO) {
-							// clean up to avoid unwanted flashing
-							mRootUtil.executeWithBusybox(
-									"rm /cache/recovery/command", null);
-							mRootUtil.executeWithBusybox(
-									"rm /cache/recovery/" + file, null);
-							AssetUtil.removeBusybox();
-						}
-					}
-				}
-
-		);
-	}
 
 	private void softReboot() {
 		if (!startShell())

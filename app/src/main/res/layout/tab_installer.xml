@@ -2,13 +2,15 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="?attr/actionBarSize">
+            android:layout_marginTop="?attr/actionBarSize"
+    android:clickable="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:weightSum="1">
 
         <LinearLayout
             android:id="@+id/install_reverted_warning"
@@ -54,45 +56,37 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:text="@string/tabInstall"
             android:textAllCaps="true"
             android:textStyle="bold"/>
 
-        <Button
-            android:id="@+id/btnInstall"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/install"/>
-
-        <Button
-            android:id="@+id/btnUninstall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/xposedMainThread"
+            android:id="@+id/xposed_xda_thread"
             android:layout_marginBottom="8dp"
-            android:text="@string/uninstall"/>
+            android:layout_marginTop="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:text="@string/settings_install_mode"
-            android:textAllCaps="true"
-            android:textStyle="bold"/>
-
-        <Button
-            android:id="@+id/framework_install_mode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:text="@string/install_header_reboot"
             android:textAllCaps="true"
             android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btnRebootRecovery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/recovery_reboot"/>
 
         <Button
             android:id="@+id/btnSoftReboot"

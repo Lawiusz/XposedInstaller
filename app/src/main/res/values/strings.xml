@@ -37,8 +37,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <!-- Installer tab -->
-    <string name="install">Install/Update</string>
-    <string name="uninstall">Uninstall</string>
+    <string name="xposedMainThread">You can find latest Xposed news and download flashable zip <a href="http://forum.xda-developers.com/showthread.php?t=3034811">here</a>.</string>
     <string name="installedVersion">active</string>
     <string name="latestVersion">bundled</string>
     <string name="versions">Versions:</string>
@@ -210,7 +209,7 @@
     <string name="about_developers"><a href="http://forum.xda-developers.com/member.php?u=4419114">rovo89</a> and <a href="http://forum.xda-developers.com/member.php?u=4322181">Tungstwenty</a>\n<a href="http://forum.xda-developers.com/member.php?u=4756862">-BioHaZard-</a> and <a href="http://forum.xda-developers.com/member.php?u=5345056">dvdandroid</a> for bug fixes and Material Design</string>
     <string name="about_developers_warning">Please do <b>not</b> contact us directly for support, use the link below.</string>
     <string name="about_translator_label">Translator:</string>
-    <string name="translator"></string>
+    <string name="translator"> </string>
     <string name="about_version_label">Version of this app:</string>
     <string name="about_source_label">Source code:</string>
     <string name="about_support_label">Get support at:</string>
@@ -262,5 +261,6 @@
     <string name="download_view_size">Size: %s KB</string>
     <string name="share">Share with…</string>
     <string name="back">Back</string>
+    <string name="recovery_reboot">Reboot to recovery</string>
 
 </resources>

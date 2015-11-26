@@ -254,5 +254,7 @@
     <string name="support_framework_label">Pomoc dotycząca frameworka i instalatora</string>
     <string name="support_modules_description">Przytrzymaj dany moduł na liście i wybierz \"%1$s\".</string>
     <string name="support_modules_label">Wsparcie dotyczące modułów</string>
+    <string name="recovery_reboot">Reboot to recovery</string>
+    <string name="xposedMainThread">Najnowsze informacje dotyczące Xposed oraz instalki zip znajdziesz <a href="http://forum.xda-developers.com/showthread.php?t=3034811">tutaj</a>.</string>
 
 </resources>
