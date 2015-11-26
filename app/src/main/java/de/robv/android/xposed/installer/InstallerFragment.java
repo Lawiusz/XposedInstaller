@@ -1,7 +1,6 @@
 package de.robv.android.xposed.installer;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Looper;
 import android.support.v4.app.Fragment;
@@ -352,52 +351,4 @@ public class InstallerFragment extends Fragment {
 		AssetUtil.removeBusybox();
 	}
 
-	private abstract class AsyncClickListener implements View.OnClickListener {
-		private final CharSequence mProgressDlgText;
-
-		public AsyncClickListener(CharSequence progressDlgText) {
-			mProgressDlgText = progressDlgText;
-		}
-
-		@Override
-		public final void onClick(final View v) {
-			if (mProgressDlgText != null) {
-				dlgProgress.content(mProgressDlgText);
-				dlgProgress.show();
-			}
-			new Thread() {
-				public void run() {
-					onAsyncClick(v);
-					dlgProgress.build().dismiss();
-				}
-			}.start();
-		}
-
-		protected abstract void onAsyncClick(View v);
-	}
-
-	private abstract class AsyncDialogClickListener
-			implements DialogInterface.OnClickListener {
-		private final CharSequence mProgressDlgText;
-
-		public AsyncDialogClickListener(CharSequence progressDlgText) {
-			mProgressDlgText = progressDlgText;
-		}
-
-		@Override
-		public void onClick(final DialogInterface dialog, final int which) {
-			if (mProgressDlgText != null) {
-				dlgProgress.content(mProgressDlgText);
-				dlgProgress.show();
-			}
-			new Thread() {
-				public void run() {
-					onAsyncClick(dialog, which);
-					dlgProgress.build().dismiss();
-				}
-			}.start();
-		}
-
-		protected abstract void onAsyncClick(DialogInterface dialog, int which);
-	}
 }
