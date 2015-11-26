@@ -15,7 +15,6 @@ import java.io.IOException;
 
 import de.robv.android.xposed.installer.util.RepoLoader;
 import de.robv.android.xposed.installer.util.ThemeUtil;
-import de.robv.android.xposed.installer.util.UIUtil;
 
 public class SettingsActivity extends XposedBaseActivity {
 	@Override
@@ -24,13 +23,9 @@ public class SettingsActivity extends XposedBaseActivity {
 		ThemeUtil.setTheme(this);
 		setContentView(R.layout.activity_container);
 
+			int acolor = XposedApp.lcolor(this);
+			this.getWindow().setStatusBarColor(darkenColor(acolor, 0.85f));
 
-
-		if (UIUtil.isLollipop()) {
-
-			int acolor = XposedApp.lcolor(this); //good!
-			this.getWindow().setStatusBarColor(darkenColor(acolor, 0.85f)); //very good!
-		}
 
 		Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(mToolbar);

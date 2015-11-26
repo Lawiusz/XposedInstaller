@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import de.robv.android.xposed.installer.util.ThemeUtil;
-import de.robv.android.xposed.installer.util.UIUtil;
 
 public class SupportActivity extends XposedBaseActivity {
 	@Override
@@ -53,7 +52,6 @@ public class SupportActivity extends XposedBaseActivity {
 		@Override
 		public void onResume() {
 			super.onResume();
-			if (UIUtil.isLollipop())
 				getActivity().getWindow().setStatusBarColor(
 						darkenColor(XposedApp.getColor(getActivity()), 0.85f));
 		}

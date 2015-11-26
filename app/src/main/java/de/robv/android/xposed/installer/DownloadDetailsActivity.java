@@ -28,7 +28,6 @@ import de.robv.android.xposed.installer.util.ModuleUtil.ModuleListener;
 import de.robv.android.xposed.installer.util.RepoLoader;
 import de.robv.android.xposed.installer.util.RepoLoader.RepoListener;
 import de.robv.android.xposed.installer.util.ThemeUtil;
-import de.robv.android.xposed.installer.util.UIUtil;
 
 public class DownloadDetailsActivity extends XposedBaseActivity
 		implements RepoListener, ModuleListener {
@@ -111,11 +110,8 @@ public class DownloadDetailsActivity extends XposedBaseActivity
 	@Override
 	protected void onResume() {
 		super.onResume();
-
-		if (UIUtil.isLollipop())
 			getWindow().setStatusBarColor(
 					darkenColor(XposedApp.getColor(this), 0.85f));
-
 	}
 
 	private void setupTabs() {
