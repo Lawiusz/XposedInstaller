@@ -1,35 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- General/various strings -->
 
     <!-- Welcome screen / main sections -->
-    <string name="welcome">Benvido á <b>Instalador Xposed</b>!\nEscolla o que facer:</string>
     <string name="tabInstall">Framework</string>
-    <string name="tabInstallDescription">Aquí pode xestionar Xposed Framework, que é necesario para todos os módulos de operar.</string>
-    <string name="tabModules">Módulos</string>
-    <string name="tabModulesDescription">Xposed Framework en si non engade ningunha funcionalidade. Módulos necesitan para iso. Nesta sección, pode activar os módulos, xa instalados.</string>
-    <string name="tabDownload">Descarga</string>
-    <string name="tabDownloadDescription">Esta sección permítelle acceder a un repositorio de módulos, así que pode buscar e descargar o que lle gusta e mantelos actualizados.</string>
     <string name="welcome_framework_update_available">Unha actualización está dispoñible para Xposed Framework.</string>
     <string name="welcome_update_available">Un ou máis actualizacións están dispoñibles para os módulos.</string>
-    <string name="tabSettings">Axustes</string>
-    <string name="tabSettingsDescription">Veña a esta sección para configurar o Instalador Xposed y e framework.</string>
-    <string name="tabAbout">Sobre</string>
-    <string name="tabAboutDescription">Información sobre as persoas que crearon Xposed, onde obter axuda para esta aplicación, etc</string>
-
     <!-- Installer tab -->
-    <string name="install">Instalar/Actualizar</string>
-    <string name="uninstall">Desinstalar</string>
-    <string name="installedVersion">Activo</string>
-    <string name="latestVersion">incluído</string>
-    <string name="versions">Versión:</string>
     <string name="soft_reboot">Reinicie Software</string>
     <string name="reboot">Reinicie</string>
     <string name="areyousure">¿Estái seguro?</string>
-    <string name="phone_not_compatible">Xposed non é (aínda) compatible coa versión do Android SDK %1$d ou arquitectura de procesador (%2$s).</string>
-    <string name="not_tested_but_compatible">Xposed non foi probado coa versión do Android SDK %d, pero parece ser apoiada. Podes probar instala-lo sentir aventureiro.</string>
-
     <!-- File operations -->
 
     <!-- Modules tab -->
@@ -79,12 +60,10 @@
     <!-- About tab -->
     <string name="about_developers_label">Desarrolladores principales:</string>
     <string name="about_developers"><a href="http://forum.xda-developers.com/member.php?u=4419114">rovo89</a> e <a href="http://forum.xda-developers.com/member.php?u=4322181">Tungstwenty</a></string>
-    <string name="about_developers_warning">Por favor, póñase en contacto connosco para obter soporte, use o seguinte enlace.</string>
     <string name="about_translator_label">Traductor:</string>
     <string name="translator">David_Vaz</string>
     <string name="about_version_label">Versión deste aplicación:</string>
     <string name="about_source_label">Código fonte:</string>
-    <string name="about_support_label">Recibir apoio en:</string>
     <string name="about_libraries_label">Librerias usadas:</string>
 
     <!-- DownloadView -->
@@ -93,7 +72,7 @@
     <string name="download_view_cancel">Cancelar</string>
     <string name="download_view_no_url">Ligazón a descarga non está dispoñible</string>
     <string name="download_view_running">A descarga está en execución (%1$,d of %2$,d kB)</string>
-    <string name="download_view_waiting">Esperando para descargar&#8230;</string>
+    <string name="download_view_waiting">Esperando para descargar…</string>
     <string name="download_view_successful">Descarga rematou</string>
     <string name="download_view_failed">Error de descarga (error %d)</string>
 

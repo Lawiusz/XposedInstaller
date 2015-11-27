@@ -32,7 +32,7 @@ public class HashUtil {
 			MessageDigest md = MessageDigest.getInstance(algorithm);
 			InputStream is = new FileInputStream(file);
 			byte[] buffer = new byte[8192];
-			int read = 0;
+			int read;
 			while ((read = is.read(buffer)) > 0) {
 				md.update(buffer, 0, read);
 			}

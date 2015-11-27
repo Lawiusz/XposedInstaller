@@ -1,6 +1,5 @@
 package de.robv.android.xposed.installer;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Looper;
 import android.support.v4.app.Fragment;
@@ -25,7 +24,6 @@ import de.robv.android.xposed.installer.util.RootUtil;
 
 public class InstallerFragment extends Fragment {
 	private RootUtil mRootUtil = new RootUtil();
-	private MaterialDialog.Builder dlgProgress;
 
 	private static int extractIntPart(String str) {
 		int result = 0, length = str.length();
@@ -42,9 +40,6 @@ public class InstallerFragment extends Fragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		Activity activity = getActivity();
-
-		dlgProgress = new MaterialDialog.Builder(activity).progress(true, 0);
 	}
 
 	@Override
@@ -58,77 +53,6 @@ public class InstallerFragment extends Fragment {
 		Button btnSoftReboot = (Button) v.findViewById(R.id.btnSoftReboot);
 		Button btnReboot = (Button) v.findViewById(R.id.btnReboot);
 		Button btnRebootRecovery = (Button) v.findViewById(R.id.btnRebootRecovery);
-
-
-		// FIXME
-		/*
-		 * boolean isCompatible = false; if (BINARIES_FOLDER == null) { //
-		 * incompatible processor architecture } else if (Build.VERSION.SDK_INT
-		 * == 15) { APP_PROCESS_NAME = BINARIES_FOLDER +
-		 * "app_process_xposed_sdk15"; isCompatible = checkCompatibility();
-		 *
-		 * } else if (Build.VERSION.SDK_INT >= 16 && Build.VERSION.SDK_INT <=
-		 * 19) { APP_PROCESS_NAME = BINARIES_FOLDER +
-		 * "app_process_xposed_sdk16"; isCompatible = checkCompatibility();
-		 *
-		 * } else if (Build.VERSION.SDK_INT > 19) { APP_PROCESS_NAME =
-		 * BINARIES_FOLDER + "app_process_xposed_sdk16"; isCompatible =
-		 * checkCompatibility(); if (isCompatible) {
-		 * txtInstallError.setText(String.format(getString(R.string.
-		 * not_tested_but_compatible), Build.VERSION.SDK_INT));
-		 * txtInstallError.setVisibility(View.VISIBLE); } }
-		 */
-
-		// FIXME
-		// TODO: update android 6.0 permission manager when final version of
-		// xposed installer is available
-		/*
-		 * if (isCompatible) { btnInstall.setOnClickListener(new
-		 * AsyncClickListener(btnInstall.getText()) {
-		 *
-		 * @Override public void onAsyncClick(View v) { final boolean success =
-		 * install(); getActivity().runOnUiThread(new Runnable() {
-		 *
-		 * @Override public void run() { refreshVersions(); if (success)
-		 * ModuleUtil.getInstance().updateModulesList(false);
-		 *
-		 * // Start tracking the last seen version, irrespective of the
-		 * installation method and the outcome. // 0 or a stale version might be
-		 * registered, if a recovery installation was requested // It will get
-		 * up to date when the last seen version is updated on a later panel
-		 * startup
-		 * XposedApp.getPreferences().edit().putInt(PREF_LAST_SEEN_BINARY,
-		 * appProcessInstalledVersion).commit(); // Dismiss any warning already
-		 * being displayed
-		 * getView().findViewById(R.id.install_reverted_warning).setVisibility(
-		 * View.GONE); } }); } }); } else { String errorText =
-		 * String.format(getString(R.string.phone_not_compatible),
-		 * Build.VERSION.SDK_INT, Build.CPU_ABI); if
-		 * (!mCompatibilityErrors.isEmpty()) errorText += "\n\n" +
-		 * TextUtils.join("\n", mCompatibilityErrors);
-		 * txtInstallError.setText(errorText);
-		 * txtInstallError.setVisibility(View.VISIBLE);
-		 * btnInstall.setEnabled(false); }
-		 *
-		 * btnUninstall.setOnClickListener(new
-		 * AsyncClickListener(btnUninstall.getText()) {
-		 *
-		 * @Override public void onAsyncClick(View v) { uninstall();
-		 * getActivity().runOnUiThread(new Runnable() {
-		 *
-		 * @Override public void run() { refreshVersions();
-		 *
-		 * // Update tracking of the last seen version if
-		 * (appProcessInstalledVersion == 0) { // Uninstall completed, check if
-		 * an Xposed binary doesn't reappear
-		 * XposedApp.getPreferences().edit().putInt(PREF_LAST_SEEN_BINARY,
-		 * -1).commit(); } else { // Xposed binary still in place. // Stop
-		 * tracking last seen version, as uninstall might complete later or not
-		 * XposedApp.getPreferences().edit().remove(PREF_LAST_SEEN_BINARY).
-		 * commit(); } // Dismiss any warning already being displayed
-		 * getView().findViewById(R.id.install_reverted_warning).setVisibility(
-		 * View.GONE); } }); } });
-		 */
 
 		String installedXposedVersion = XposedApp.getXposedProp()
 				.get("version");
@@ -219,48 +143,6 @@ public class InstallerFragment extends Fragment {
 						}
 					}).cancelable(false).show();
 		}
-
-		/*
-		 * Detection of reverts to /system/bin/app_process. LastSeenBinary can
-		 * be: missing - do nothing -1 - Uninstall was performed, check if an
-		 * Xposed binary didn't reappear >= 0 - Make sure a downgrade or
-		 * non-xposed binary doesn't occur Also auto-update the value to the
-		 * latest version found
-		 */
-		/*
-		 * int lastSeenBinary =
-		 * XposedApp.getPreferences().getInt(PREF_LAST_SEEN_BINARY,
-		 * Integer.MIN_VALUE); if (lastSeenBinary != Integer.MIN_VALUE) { final
-		 * View vInstallRevertedWarning =
-		 * v.findViewById(R.id.install_reverted_warning); final TextView
-		 * txtInstallRevertedWarning = (TextView)
-		 * v.findViewById(R.id.install_reverted_warning_text);
-		 * vInstallRevertedWarning.setOnClickListener(new View.OnClickListener()
-		 * {
-		 *
-		 * @Override public void onClick(View v) { // Stop tracking and dismiss
-		 * the info panel
-		 * XposedApp.getPreferences().edit().remove(PREF_LAST_SEEN_BINARY).
-		 * commit(); vInstallRevertedWarning.setVisibility(View.GONE); } });
-		 *
-		 * if (lastSeenBinary < 0 && appProcessInstalledVersion > 0) { //
-		 * Uninstall was previously completed but an Xposed binary has
-		 * reappeared txtInstallRevertedWarning.setText(getString(R.string.
-		 * uninstall_reverted, versionToText(appProcessInstalledVersion)));
-		 * vInstallRevertedWarning.setVisibility(View.VISIBLE); } else if
-		 * (appProcessInstalledVersion < lastSeenBinary) { // Previously
-		 * installed binary was either restored to stock or downgraded, probably
-		 * // following a reboot on a locked system
-		 * txtInstallRevertedWarning.setText(getString(R.string.
-		 * install_reverted, versionToText(lastSeenBinary),
-		 * versionToText(appProcessInstalledVersion)));
-		 * vInstallRevertedWarning.setVisibility(View.VISIBLE); } else if
-		 * (appProcessInstalledVersion > lastSeenBinary) { // Current binary is
-		 * newer, register it and keep monitoring for future downgrades
-		 * XposedApp.getPreferences().edit().putInt(PREF_LAST_SEEN_BINARY,
-		 * appProcessInstalledVersion).commit(); } else { // All is ok } }
-		 */
-
 		return v;
 	}
 
@@ -318,7 +200,7 @@ public class InstallerFragment extends Fragment {
 		if (!startShell())
 			return;
 
-		List<String> messages = new LinkedList<String>();
+		List<String> messages = new LinkedList<>();
 		if (mRootUtil.execute(
 				"setprop ctl.restart surfaceflinger; setprop ctl.restart zygote",
 				messages) != 0) {
@@ -332,7 +214,7 @@ public class InstallerFragment extends Fragment {
 		if (!startShell())
 			return;
 
-		List<String> messages = new LinkedList<String>();
+		List<String> messages = new LinkedList<>();
 
 		String command = "reboot";
 		if (mode != null) {

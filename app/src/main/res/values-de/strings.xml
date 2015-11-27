@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- General/various strings -->
@@ -7,74 +7,21 @@
     <string name="xposed_not_active">Die aktuellste Xposed-Version ist derzeit nicht aktiv. Hast du das Framework installiert und das Gerät neugestartet?</string>
 
     <!-- Welcome screen / main sections -->
-    <string name="welcome">Willkommen beim <b>Xposed Installer</b>!\nWas möchtest du tun?</string>
     <string name="tabInstall">Framework</string>
-    <string name="tabInstallDescription">Hier kannst du das Xposed-Framework verwalten, welches von allen Modulen benötigt wird.</string>
-    <string name="tabModules">Module</string>
-    <string name="tabModulesDescription">Das Framework selbst bringt keinerlei Funktionalität mit, dafür sind sogenannte Module zuständig. In diesem Bereich kannst du installierte Module aktivieren.</string>
-    <string name="tabDownload">Download</string>
-    <string name="tabDownloadDescription">Dieser Bereich gibt dir Zugriff auf eine Sammlung von Modulen, aus der du gewünschte Module herunterladen und immer aktuell halten kannst.</string>
     <string name="welcome_framework_update_available">Es ist eine Aktualisierung für das Xposed-Framework verfügbar (%s).</string>
     <string name="welcome_update_available">Es sind Aktualisierungen für Module verfügbar.</string>
-    <string name="tabSettings">Einstellungen</string>
-    <string name="tabSettingsDescription">In diesem Bereich kannst du den Xposed Installer und das Xposed-Framework anpassen.</string>
-    <string name="tabSupport">Support</string>
-    <string name="tabSupportDescription">Erhalte Unterstützung bei Problemen. Außerdem kannst du dich mit einer Spende für Xposed bedanken.</string>
-    <string name="tabLogs">Logs</string>
-    <string name="tabLogsDescription">Logs des Xposed-Frameworks ansehen, speichern und senden.</string>
-    <string name="tabAbout">Über</string>
-    <string name="tabAboutDescription">Erfahre mehr darüber, wer hinter Xposed steckt.</string>
-
     <!-- Installer tab -->
-    <string name="install">Installieren/Aktualisieren</string>
-    <string name="uninstall">Deinstallieren</string>
-    <string name="installedVersion">Aktiv</string>
-    <string name="latestVersion">Mitgeliefert</string>
-    <string name="versions">Versionen:</string>
     <string name="install_header_reboot">Neustart</string>
     <string name="soft_reboot">Software-Neustart</string>
     <string name="reboot">Geräte-Neustart</string>
     <string name="areyousure">Bist du sicher?</string>
-    <string name="phone_not_compatible">Xposed ist (noch) nicht mit der Android-SDK-Version %1$d oder deiner Prozessor-Architektur (%2$s) kompatibel.</string>
-    <string name="not_tested_but_compatible">Xposed wurde noch nicht mit der Android-SDK-Version %d getestet, aber es scheint kompatibel damit zu sein. Wenn du abenteuerlustig bist, kannst die Installation versuchen.</string>
     <string name="reboot_failed">Neustart fehlgeschlagen. Bitte verwende die normale Neustartfunktion des Geräts.</string>
-    <string name="auto_flash_note">%s sollte automatisch installiert werden, sobald du "OK" drückst.</string>
-    <string name="manual_flash_note">Bitte installiere %s von der SD-Karte, um den Vorgang abzuschließen.</string>
-    <string name="reboot_confirmation">Möchtest du jetzt neustarten?</string>
-    <string name="reboot_recovery_confirmation">Möchtest du jetzt in den Recovery-Modus booten?</string>
     <string name="install_warning_title">Vorsicht!</string>
     <string name="install_warning">In manchen Fällen wird das Gerät nicht mehr korrekt starten, nachdem du Xposed installiert hast.\n\nFalls dir \"Soft Brick\" und \"Bootloop\" nichts sagen oder du nicht weißt, wie du dich aus einer solchen Situation befreien kannst, solltest du Xposed <b>NICHT</b> installieren!\n\nIn jedem Fall ist es sehr empfehlenswert, ein aktuelles Backup zu haben.</string>
     <string name="dont_show_again">Nicht wieder anzeigen</string>
-    <string name="install_known_issue">Es scheint eine bekannte Inkompatibilität (\"%s\") mit deinem ROM zu geben. Du solltest Xposed wahrscheinlich nicht installieren. Klicke hier für mehr Informationen.</string>
-    <string name="install_reverted">Version \"%1$s\" von app_process war zuvor installiert, aber jetzt wurde Version \"%2$s\" gefunden. Wenn du nicht erwartet hast, dass eine alte Datei wiederhergestellt wird, könntest du die Installation per Recovery (automatisch oder manuell) versuchen.</string>
-    <string name="uninstall_reverted">app_process wurde zuvor deinstalliert, aber jetzt wurde Version \"%s\" gefunden. Wenn du nicht erwartet hast, dass eine alte Datei wiederhergestellt wird, könntest du die Deinstallation per Recovery (automatisch oder manuell) versuchen.</string>
     <string name="tap_to_dismiss">Antippen zum Ausblenden</string>
-    <string name="sdcard_location">SD-Karte: %s</string>
-
     <!-- File operations -->
     <string name="root_failed">Root-Zugriff fehlgeschlagen\n\nStelle sicher, dass das Gerät korrekt gerootet ist und Shell-Kommandos nicht blockiert werden.</string>
-    <string name="file_extract_failed">%s konnte nicht entpackt werden</string>
-    <string name="file_mounting_writable">Mounte %s beschreibbar&#8230;</string>
-    <string name="file_mount_writable_failed">%s konnte nicht beschreibbar gemacht werden</string>
-    <string name="file_trying_to_continue">Versuche dennoch fortzusetzen&#8230;</string>
-    <string name="file_backup_already_exists">Backup existiert bereits unter %s</string>
-    <string name="file_backup_not_found">Kein Backup unter %s gefunden</string>
-    <string name="file_backup_failed">Backup von %s konnte nicht erstellt werden</string>
-    <string name="file_backup_successful">Backup wurde unter %s erstellt</string>
-    <string name="file_backup_restoring">Stelle Backup von %s wieder her&#8230;</string>
-    <string name="file_copying">Kopiere %s&#8230;</string>
-    <string name="file_copy_failed">Konnte %1$s nicht nach %2$s kopieren</string>
-    <string name="file_move_failed">Konnte %1$s nicht nach %2$s verschieben</string>
-    <string name="file_set_perms_failed">Berechtigungen für %s konnten nicht gesetzt werden</string>
-    <string name="file_set_owner_failed">Besitzer für %s konnte nicht gesetzt werden</string>
-    <string name="file_removing">Entferne %s&#8230;</string>
-    <string name="file_remove_failed">%s konnte nicht entfernt werden</string>
-    <string name="file_creating_directory">Erstelle Verzeichnis %s&#8230;</string>
-    <string name="file_create_directory_failed">Konnte Verzeichnis %s nicht anlegen</string>
-    <string name="file_writing_recovery_command">Schreibe Recovery-Kommando&#8230;</string>
-    <string name="file_writing_recovery_command_failed">Schreiben des Recovery-Kommands ist fehlgeschlagen. Bitte verwende eine andere Installationsweise.</string>
-    <string name="file_done">Fertig! Änderungen werden nach einem Neustart sichtbar.</string>
-
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Xposed-Modul ist noch nicht aktiv</string>
     <string name="module_is_not_activated_yet_detailed">%s wurde installiert, aber noch nicht aktiviert.</string>
@@ -147,8 +94,6 @@
     <string name="settings_performance_experiment_summary">Falls du diese Einstellung aktivierst, wird sich die Leistung deines Systems entweder verschlechtern, verbessern oder gar nicht verändern. Teste sie und berichte, welches Verhalten du beobachten kannst. Nachdem du diese Einstellung geändert hast, musst du das Framework neu installieren und das Gerät neustarten.</string>
     <string name="settings_group_app">Applikation</string>
     <string name="settings_theme">Aussehen</string>
-    <string name="settings_theme_light">Hell</string>
-    <string name="settings_theme_dark">Dunkel</string>
     <string name="settings_theme_black">Schwarz (nützlich für AMOLED-Bildschirme)</string>
 
     <!-- Support tab -->
@@ -160,24 +105,18 @@
     <string name="support_donate_description">Wenn du dich für Xposed bedanken möchtest, kannst du hier an rovo89 spenden:</string>
 
     <!-- Logs tab  -->
-    <string name="logs_load_failed">Log konnte nicht gelesen werden:</string>
     <string name="logs_save_failed">Log konnte nicht auf der SD-Karte gespeichert werden:</string>
     <string name="sdcard_not_writable">SD-Karte wurde nicht gefunden oder ist nicht beschreibbar</string>
-    <string name="log_too_large">Log ist größer als %1$,d kB, die ersten %2$,d kB wurden übersprungen</string>
     <string name="menuClearLog">Log jetzt leeren</string>
     <string name="logs_cleared">Log wurde geleert</string>
     <string name="logs_clear_failed">Konnte Log nicht leeren:</string>
-    <string name="log_is_empty">Log ist leer</string>
-
     <!-- About tab -->
     <string name="about_developers_label">Hauptentwickler:</string>
     <string name="about_developers"><a href="http://forum.xda-developers.com/member.php?u=4419114">rovo89</a> und <a href="http://forum.xda-developers.com/member.php?u=4322181">Tungstwenty</a></string>
-    <string name="about_developers_warning">Bitte kontaktiere uns <b>nicht</b> direkt für Support. Verwende stattdessen die folgenden Links.</string>
     <string name="about_translator_label">Übersetzer:</string>
     <string name="translator">Nils Wasser (BobQuentok), rovo89</string>
     <string name="about_version_label">Version dieser App:</string>
     <string name="about_source_label">Quellcode:</string>
-    <string name="about_support_label">Support:</string>
     <string name="about_libraries_label">Verwendete Bibliotheken:</string>
 
     <!-- DownloadView -->

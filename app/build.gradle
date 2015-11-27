@@ -12,12 +12,7 @@ android {
         versionName "4.UNSTABLE_material_Lawiusz"
         project.ext.set("archivesBaseName", "XposedInstaller_material_Lawiusz");
 
-    }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-        }
     }
 }
 
