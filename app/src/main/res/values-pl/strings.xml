@@ -179,7 +179,7 @@
     <string name="navigation_drawer_open">Otwórz szufladę nawigacji.</string>
     <string name="no_backup_found">Brak kopii zapasowych</string>
     <string name="no_enabled_modules">Brak aktywnych modułów</string>
-    <string name="no_installed_modules">Brak zainstalowanych modułów</string>
+    <string name="no_installed_modules">Brak zainstalowanych modułów!</string>
     <string name="settings_default_view">Domyślny widok</string>
     <string name="share">Udostępnij</string>
     <string name="support_donate_description">Tutaj możesz finansowo wesprzeć rovo89, by podziękować za wspaniałą pracę:</string>
@@ -193,5 +193,19 @@
     <string name="support_modules_label">Wsparcie dotyczące modułów</string>
     <string name="recovery_reboot">Reboot to recovery</string>
     <string name="xposedMainThread">Najnowsze informacje dotyczące Xposed oraz instalki zip znajdziesz <a href="http://forum.xda-developers.com/showthread.php?t=3034811">tutaj</a>.</string>
+    <string name="a_repo">Repozytorium pełne różnych modułów</string>
+    <string name="about_libraries"></string>
+    <string name="content_intro1">Obejrzyjmy parę funkcjonalności...</string>
+    <string name="customize_your_device">Dostosuj swoje urządzenie!</string>
+    <string name="no_xposed">Nie można znaleźć aktywnej wersji Xposed Framework.</string>
+    <string name="title_intro1">Witamy w Xposed Framework</string>
+    <string name="use_modules">Użyj modułów, by uczynić Androida naprawdę Twoim!</string>
+    <string name="modules_def">Moduły są to modyfikacje, które możesz zastosować w swoim urządzeniu. Moduł jest plikiem APK i może byc zainstalowany jak normalna aplikacja.</string>
+    <string name="x_not_installed">Xposed Framework nie jest jeszcze zainstalowany</string>
+    <string name="xposedCapabilities">Xposed to bardzo potężne środowisko, dające możliwość modyfikacji Twojego ROMu - bez potrzeby dekompilacji APK czy flashowania czegokolwiek!</string>
+    <string name="xposed_ready">Xposed w wersji %s zainstalowane i w gotowości do działania. Miłej zabawy!</string>
+    <string name="xposed_working">Wszystko gotowe!</string>
+    <string name="integrated_downloader">Xposed Installer umożliwia przeglądanie, pobieranie i zarządznie modułami Xposed.</string>
+    <string name="xthread_intro">Najnowszą instalkę zip Xposed znajdziesz tutaj: http://forum.xda-developers.com/showthread.php?t=3034811</string>
 
 </resources>

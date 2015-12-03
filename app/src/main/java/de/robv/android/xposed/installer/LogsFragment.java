@@ -40,6 +40,7 @@ public class LogsFragment extends Fragment {
 	private HorizontalScrollView mHSVLog;
 
 
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);

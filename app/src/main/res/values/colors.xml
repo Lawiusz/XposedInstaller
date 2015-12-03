@@ -37,10 +37,7 @@
     <color name="card_shadow_black">#121212</color>
 
 
-    <!-- Material Design - Color Palette -->
-    <!-- Date: 1/15/2015 -->
-    <!-- http://www.google.com/design/spec/style/color.html#color-color-palette -->
-
+    <color name="transparent">#30000000</color>
     <!-- Red -->
     <color name="red_800">#C62828</color>
     <color name="red_900">#B71C1C</color>

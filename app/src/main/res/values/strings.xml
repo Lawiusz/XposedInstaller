@@ -1,6 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
+    <!-- Intro -->
+    <string name="title_intro1">Welcome to Xposed Framework</string>
+    <string name="content_intro1">Let\'s check out some features…</string>
+    <string name="x_not_installed">Xposed Framework is not installed yet</string>
+    <string name="no_xposed">Cannot find active Xposed Framework.</string>
+    <string name="install_xposed">Please install it manually from recovery</string>
+    <string name="xthread_intro">You can find latest Xposed flashable zip there: http://forum.xda-developers.com/showthread.php?t=3034811</string>
+    <string name="customize_your_device">Customize your device!</string>
+    <string name="xposedCapabilities">Xposed is very powerful framework which gives you the possibility to modify your ROM - without modifying any APK or flashing!</string>
+    <string name="use_modules">Use modules to make your Android yours!</string>
+    <string name="modules_def">Modules are modifications you can apply to your ROM. A module is an APK file that can be installed like normal app.</string>
+    <string name="a_repo">There\'s a repository full of various modules!</string>
+    <string name="integrated_downloader">Xposed Installer allows you to browse, download and manage Xposed modules.</string>
+    <string name="xposed_working">All done!</string>
+    <string name="xposed_ready">Xposed version %s installed and ready to operate. Enjoy!</string>
+
+
     <!-- General/various strings -->
     <string name="menuSend">Send</string>
     <string name="menuSaveToSd">Save to SD card</string>
@@ -130,8 +147,6 @@
     <string name="settings_theme_dark_pink">Dark <font color="#C2185B">Pink</font></string>
     <string name="settings_theme_dark_green">Dark <font color="#2E7D32">Green</font></string>
     <string name="settings_theme_black">Black (useful for AMOLED screens)</string>
-
-
 
 
     <string name="settings_default_view">Default view</string>

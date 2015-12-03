@@ -38,7 +38,6 @@
     <item name="download_status_installed">@android:color/holo_orange_light</item>
 </style>
 
-
     <style name="Theme.XposedInstaller.Light.Blue" parent="Theme.XposedInstaller.Light.Base">
         <item name="android:colorPrimary">@color/blue_800</item>
         <item name="android:colorPrimaryDark">@color/blue_900</item>
