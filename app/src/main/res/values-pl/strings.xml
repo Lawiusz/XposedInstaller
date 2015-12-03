@@ -203,7 +203,7 @@
     <string name="modules_def">Moduły są to modyfikacje, które możesz zastosować w swoim urządzeniu. Moduł jest plikiem APK i może byc zainstalowany jak normalna aplikacja.</string>
     <string name="x_not_installed">Xposed Framework nie jest jeszcze zainstalowany</string>
     <string name="xposedCapabilities">Xposed to bardzo potężne środowisko, dające możliwość modyfikacji Twojego ROMu - bez potrzeby dekompilacji APK czy flashowania czegokolwiek!</string>
-    <string name="xposed_ready">Xposed w wersji %s zainstalowane i w gotowości do działania. Miłej zabawy!</string>
+    <string name="xposed_ready">Xposed w wersji %s zainstalowane i w gotowe do działania. Miłej zabawy!</string>
     <string name="xposed_working">Wszystko gotowe!</string>
     <string name="integrated_downloader">Xposed Installer umożliwia przeglądanie, pobieranie i zarządznie modułami Xposed.</string>
     <string name="xthread_intro">Najnowszą instalkę zip Xposed znajdziesz tutaj: http://forum.xda-developers.com/showthread.php?t=3034811</string>

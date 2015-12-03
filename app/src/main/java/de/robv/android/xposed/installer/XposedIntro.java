@@ -1,5 +1,6 @@
 package de.robv.android.xposed.installer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -48,7 +49,8 @@ public class XposedIntro extends AppIntro2 {
 
     @Override
     public void onDonePressed() {
-        // Do something when users tap on Done button.
+        Intent intent = new Intent(this, WelcomeActivity.class);
+        startActivity(intent);
         finish();
     }
 
