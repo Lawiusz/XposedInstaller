@@ -1,19 +1,24 @@
 package de.robv.android.xposed.installer;
 
+import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
-import android.os.Looper;
+import android.os.ParcelFileDescriptor;
 import android.support.v4.app.Fragment;
+import android.system.Os;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
+import android.content.Intent;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 
+import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,8 +28,10 @@ import de.robv.android.xposed.installer.util.RootUtil;
 
 
 public class InstallerFragment extends Fragment {
-	private RootUtil mRootUtil = new RootUtil();
 
+	List<String> messages = new LinkedList<>();
+	private static final int READ_REQUEST_CODE = 42;
+	private RootUtil mRootUtil = new RootUtil();
 	private static int extractIntPart(String str) {
 		int result = 0, length = str.length();
 		for (int offset = 0; offset < length; offset++) {
@@ -53,6 +60,7 @@ public class InstallerFragment extends Fragment {
 		Button btnSoftReboot = (Button) v.findViewById(R.id.btnSoftReboot);
 		Button btnReboot = (Button) v.findViewById(R.id.btnReboot);
 		Button btnRebootRecovery = (Button) v.findViewById(R.id.btnRebootRecovery);
+		Button btnInstall = (Button) v.findViewById(R.id.button_install);
 
 		String installedXposedVersion = XposedApp.getXposedProp()
 				.get("version");
@@ -83,8 +91,7 @@ public class InstallerFragment extends Fragment {
 		btnReboot.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				areYouSure(R.string.reboot,
-						new MaterialDialog.ButtonCallback() {
+				areYouSure(R.string.reboot, new MaterialDialog.ButtonCallback() {
 							@Override
 							public void onPositive(MaterialDialog dialog) {
 								super.onPositive(dialog);
@@ -122,29 +129,61 @@ public class InstallerFragment extends Fragment {
 			}
 		});
 
-		if (!XposedApp.getPreferences().getBoolean("hide_install_warning",
-				false)) {
-			final View dontShowAgainView = inflater
-					.inflate(R.layout.dialog_install_warning, null);
 
-			new MaterialDialog.Builder(getActivity())
-					.title(R.string.install_warning_title)
-					.customView(dontShowAgainView, false)
-					.positiveText(android.R.string.ok)
-					.callback(new MaterialDialog.ButtonCallback() {
-						@Override
-						public void onPositive(MaterialDialog dialog) {
-							super.onPositive(dialog);
-							CheckBox checkBox = (CheckBox) dontShowAgainView
-									.findViewById(android.R.id.checkbox);
-							if (checkBox.isChecked())
-								XposedApp.getPreferences().edit().putBoolean(
-										"hide_install_warning", true).apply();
-						}
-					}).cancelable(false).show();
-		}
+		btnInstall.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				InstallWarning(new MaterialDialog.ButtonCallback() {
+					@Override
+					public void onPositive(MaterialDialog dialog) {
+						super.onPositive(dialog);
+						getActivity().runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								performFileSearch();
+							}
+
+						});
+					}
+				});
+
+			}
+		});
 		return v;
 	}
+
+	public void performFileSearch() {
+		Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+		intent.addCategory(Intent.CATEGORY_OPENABLE);
+		intent.setType("application/zip");
+		startActivityForResult(intent, READ_REQUEST_CODE);
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent resultData) {
+		if (requestCode == READ_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+
+			if (resultData != null) {
+				Uri uri = resultData.getData();
+				String resolved = null;
+				try (ParcelFileDescriptor fd = getActivity().getContentResolver().openFileDescriptor(uri, "r")) {
+					final File procfsFdFile = new File("/proc/self/fd/" + fd.getFd());
+
+					resolved = Os.readlink(procfsFdFile.getAbsolutePath());
+
+					if (TextUtils.isEmpty(resolved)
+							|| resolved.charAt(0) != '/'
+							|| resolved.startsWith("/proc/")
+							|| resolved.startsWith("/fd/"));
+				} catch (Exception errnoe) {
+					Log.e(XposedApp.TAG, "ReadError");
+				}
+				mRootUtil.execute("cp " + resolved + " /cache/xposed.zip", messages);
+				installXposedZip();
+			}
+		}
+	}
+
 
 	@Override
 	public void onResume() {
@@ -158,25 +197,6 @@ public class InstallerFragment extends Fragment {
 		mRootUtil.dispose();
 	}
 
-	private void showAlert(final String result) {
-		if (Looper.myLooper() != Looper.getMainLooper()) {
-			getActivity().runOnUiThread(new Runnable() {
-				@Override
-				public void run() {
-					showAlert(result);
-				}
-			});
-			return;
-		}
-
-		MaterialDialog dialog = new MaterialDialog.Builder(getActivity())
-				.content(result).positiveText(android.R.string.ok).build();
-		dialog.show();
-
-		TextView txtMessage = (TextView) dialog
-				.findViewById(android.R.id.message);
-		txtMessage.setTextSize(14);
-	}
 
 	private void areYouSure(int messageTextId,
 			MaterialDialog.ButtonCallback yesHandler) {
@@ -187,12 +207,18 @@ public class InstallerFragment extends Fragment {
 				.negativeText(android.R.string.no).callback(yesHandler).show();
 	}
 
-	private boolean startShell() {
-		if (mRootUtil.startShell())
-			return true;
+	private void InstallWarning(MaterialDialog.ButtonCallback yesHandler) {
+		new MaterialDialog.Builder(getActivity())
+				.title(R.string.warning)
+				.content(R.string.recovery_warning)
+				.iconAttr(android.R.attr.alertDialogIcon)
+				.positiveText(android.R.string.yes)
+				.negativeText(android.R.string.no).callback(yesHandler).show();
+	}
 
-		showAlert(getString(R.string.root_failed));
-		return false;
+	private boolean startShell() {
+		return mRootUtil.startShell();
+
 	}
 
 
@@ -206,7 +232,6 @@ public class InstallerFragment extends Fragment {
 				messages) != 0) {
 			messages.add("");
 			messages.add(getString(R.string.reboot_failed));
-			showAlert(TextUtils.join("\n", messages).trim());
 		}
 	}
 
@@ -228,9 +253,13 @@ public class InstallerFragment extends Fragment {
 		if (mRootUtil.executeWithBusybox(command, messages) != 0) {
 			messages.add("");
 			messages.add(getString(R.string.reboot_failed));
-			showAlert(TextUtils.join("\n", messages).trim());
 		}
 		AssetUtil.removeBusybox();
+	}
+	private void installXposedZip() {
+		mRootUtil.execute("echo 'install /cache/xposed.zip' >/cache/recovery/openrecoveryscript ", messages);
+		mRootUtil.execute("sync", messages);
+		reboot("recovery");
 	}
 
 }

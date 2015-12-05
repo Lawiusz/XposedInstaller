@@ -39,6 +39,8 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <!-- Installer tab -->
+    <string name="warning">Warning</string>
+    <string name="recovery_warning">This function is experimental. It may not work on non TWRP recoveries. If Xposed cannot be installed that way you have to install it manually via your recovery.</string>
     <string name="xposedMainThread">You can find latest Xposed news and download flashable zip <a href="http://forum.xda-developers.com/showthread.php?t=3034811">here</a>.</string>
     <string name="install_header_reboot">Reboot</string>
     <string name="soft_reboot">Soft reboot</string>
@@ -56,6 +58,28 @@
 
     <!-- File operations -->
     <string name="root_failed">Failed to get root access.\n\nMake sure your device is rooted properly and you have not blocked shell commands.</string>
+    <string name="file_extract_failed">Could not extract %s</string>
+    <string name="file_mounting_writable">Mounting %s writable&#8230;</string>
+    <string name="file_mount_writable_failed">Could not mount %s writable</string>
+    <string name="file_trying_to_continue">Trying to continue anyway&#8230;</string>
+    <string name="file_backup_already_exists">Backup already exists at %s</string>
+    <string name="file_backup_not_found">No backup found at %s</string>
+    <string name="file_backup_failed">Failed to create a backup of %s</string>
+    <string name="file_backup_successful">Created backup at %s</string>
+    <string name="file_backup_restoring">Restoring backup from %s</string>
+    <string name="file_copying">Copying %s&#8230;</string>
+    <string name="file_copy_failed">Could not copy %1$s to %2$s</string>
+    <string name="file_move_failed">Could not move %1$s to %2$s</string>
+    <string name="file_set_perms_failed">Could not set permissions for %s</string>
+    <string name="file_set_owner_failed">Could not set owner for %s</string>
+    <string name="file_removing">Removing %s&#8230;</string>
+    <string name="file_remove_failed">Could not remove %s</string>
+    <string name="file_creating_directory">Creating directory %s&#8230;</string>
+    <string name="file_create_directory_failed">Could not create directory %s</string>
+    <string name="file_writing_recovery_command">Writing recovery command&#8230;</string>
+    <string name="file_writing_recovery_command_failed">Writing recovery command failed. Please use a different installation method.</string>
+    <string name="file_done">Done! Changes will become active on reboot.</string>
+
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Xposed module is not activated yet</string>
     <string name="module_is_not_activated_yet_detailed">%s has been installed, but is not activated yet.</string>
@@ -112,11 +136,13 @@
     <string name="download_test_version_not_shown">A test version is available, however it isn\'t shown due to your global or module-specific settings.</string>
 
     <!-- Settings tab -->
+    <string name="sdcard_location">SD card: %s</string>
+    <string name="reboot_recovery_confirmation">Do you want to reboot to recovery now?</string>
     <string name="settings_group_installation">Installation</string>
     <string name="settings_install_mode">Installation mode</string>
     <string name="install_mode_normal">Classical (write to /system directly)</string>
-    <string name="install_mode_recovery_auto">Recovery (flash zip automatically)</string>
-    <string name="install_mode_recovery_manual">Recovery (write zip to SD card, flash manually)</string>
+    <string name="install_mode_recovery_auto">Recovery (select Xposed zip and flash it automatically)</string>
+    <string name="auto_flash_note">%s should be flashed automatically once you press "OK".</string>
     <string name="settings_group_download">Download</string>
     <string name="settings_enable_downloads">Enable downloads</string>
     <string name="settings_enable_downloads_summary">Allow Xposed Installer to check for updates and new modules</string>

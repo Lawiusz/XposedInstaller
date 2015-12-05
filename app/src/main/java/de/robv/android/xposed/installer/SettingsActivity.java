@@ -61,21 +61,6 @@ public class SettingsActivity extends XposedBaseActivity {
 			super.onCreate(savedInstanceState);
 			addPreferencesFromResource(R.xml.prefs);
 
-			findPreference("enable_downloads").setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-				@Override
-				public boolean onPreferenceChange(Preference preference, Object newValue) {
-					boolean enabled = (Boolean) newValue;
-					if (enabled) {
-						preference.getEditor().putBoolean("enable_downloads", enabled).apply();
-						RepoLoader.getInstance().refreshRepositories();
-						RepoLoader.getInstance().triggerReload(true);
-					} else {
-						RepoLoader.getInstance().clear(true);
-					}
-					return true;
-				}
-			});
-
 			findPreference("release_type_global").setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 				@Override
 				public boolean onPreferenceChange(Preference preference, Object newValue) {
