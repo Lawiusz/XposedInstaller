@@ -6,7 +6,7 @@
     <string name="content_intro1">Let\'s check out some features…</string>
     <string name="x_not_installed">Xposed Framework is not installed yet</string>
     <string name="no_xposed">Cannot find active Xposed Framework.</string>
-    <string name="install_xposed">Please install it manually from recovery</string>
+    <string name="install_xposed">Please install it manually from recovery or try auto installer.</string>
     <string name="xthread_intro">You can find latest Xposed flashable zip there: http://forum.xda-developers.com/showthread.php?t=3034811</string>
     <string name="customize_your_device">Customize your device!</string>
     <string name="xposedCapabilities">Xposed is very powerful framework which gives you the possibility to modify your ROM - without modifying any APK or flashing!</string>
