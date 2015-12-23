@@ -9,19 +9,14 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Framework</string>
     <string name="welcome_framework_update_available">Μία αναβάθμιση για το Xposed framework είναι διαθέσιμη.</string>
-    <string name="welcome_update_available">Ένα ή περισσότερα update(s) για τα modules είναι διαθέσιμο/α.</string>
     <!-- Installer tab -->
     <string name="install_header_reboot">Reboot</string>
     <string name="soft_reboot">Soft reboot</string>
     <string name="reboot">Reboot</string>
     <string name="areyousure">Είστε σίγουρος;</string>
     <string name="reboot_failed">To reboot απέτυχε. Παρακαλώ χρησιμοποιήστε την κανονική λειτουργία reboot της συσκευής σας.</string>
-    <string name="install_warning_title">Προσοχή!</string>
-    <string name="install_warning">Σε μερικές περιπτώσεις η συσκευή σας μπορεί να μην ξεκινάει μετά την εγκατάσταση του Xposed.\n\nΑν δεν έχετε ακούσει ποτέ πριν για \"soft brick\" και \"bootloop\" ή αν δεν ξέρετε πώς να επαναφέρετε μια τέτοια κατάσταση, <b>ΜΗΝ</b> εγκαταστήσετε το Xposed!\n\nΣε αυτήν την περίπτωση, προτείνεται να έχετε ένα πρόσφατο backup.</string>
-    <string name="dont_show_again">Να μην ξαναεμφανιστεί</string>
     <string name="tap_to_dismiss">Πατήστε για να φύγει</string>
     <!-- File operations -->
-    <string name="root_failed">Αποτυχία απόκτησης root access.\n\nΣιγουρέψτε ότι η συσκευή σας είναι rooted σωστά και δεν έχετε μπλοκάρει το τις εντολές shell.</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Το Xposed module δεν έχει ενεργοποιηθεί ακόμα</string>
     <string name="module_is_not_activated_yet_detailed">Το %s εγκαταστάθηκε, αλλά δεν έχει ενεργοποιηθεί ακόμα.</string>
@@ -79,13 +74,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">Εγκατάσταση</string>
-    <string name="settings_install_mode">Είδος εγκατάστησης</string>
     <string name="install_mode_normal">Κλασικό (εγγραφή στο /system άμεσα)</string>
     <string name="install_mode_recovery_auto">Recovery (flash zip αυτόματα)</string>
     <string name="install_mode_recovery_manual">Recovery (εγγραφή zip στην SD κάρτα, flash χειροκίνητα)</string>
     <string name="settings_group_download">Κατέβασμα</string>
-    <string name="settings_enable_downloads">Ενεργοποίηση κατεβασμάτων</string>
-    <string name="settings_enable_downloads_summary">Να επιτραπεί στην Εγκατάσταση του Xposed να ελέγχει για αναβαθμίσεις και νέα modules</string>
     <string name="settings_release_type">Εμφάνιση εκδόσεων</string>
     <string name="settings_group_experimental">Πειραματικό</string>
     <string name="settings_disable_resources">Απενεργοποίηση resource hooks</string>

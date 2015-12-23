@@ -9,19 +9,14 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">फ्रेमवऱक</string>
     <string name="welcome_framework_update_available">क्स्पोसेद फ्रेमवर्क का अपडेट अवेलेबल है (%s)।</string>
-    <string name="welcome_update_available">एक या अधिक मोदुलेस के लिए अपडेट उपलब्ध है।</string>
     <!-- Installer tab -->
     <string name="install_header_reboot">रिबूट</string>
     <string name="soft_reboot">नरम रिबूट</string>
     <string name="reboot">रिबूट</string>
     <string name="areyousure">क्या आपने इरादा पक्का कर लिया है?</string>
     <string name="reboot_failed">रिबूट फ़ैल होगया है। किरपिया आपके डिवाइस के सामान्य रिबूट प्रक्रिया चलकर देखे।</string>
-    <string name="install_warning_title">ध्यान से!</string>
-    <string name="install_warning">कभी कब्बर आबका डिवाइस बूट नहीं होगा, अगर आपने कभी\n\nIf  \"सॉफ्ट  ब्रिक\" और \"बूटलूप\" एन शब्दओ के बारे में कभी नहीं सुना जाओ या आप को पता नहीं की ऐसी स्थिति से रिकवर कैसे हिते है, एक्स्पोसड <b>कभी इनस्टॉल ना करे</b>!\n\nकिसी भी स्थिथि में बैकप होना यदेमंद है।</string>
-    <string name="dont_show_again">वापिस मत दिखाओ</string>
     <string name="tap_to_dismiss">बंद करने के लिए यहाँ दबाए</string>
     <!-- File operations -->
-    <string name="root_failed">रूट असेस नहीं मिल पाया गई।\n\nएक बार जाच करके जरुर देखे के अपने रूट किया है और जरुरी परमिशन दिए है।</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">एक्स्पोसड मोदुले अभी चालू नहीं है।</string>
     <string name="module_is_not_activated_yet_detailed">%s इनस्टॉल किया गया है पर वह अभी चालू नहीं है।</string>
@@ -79,13 +74,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">इंस्टालेशन</string>
-    <string name="settings_install_mode">इंस्टालेशन मोड</string>
     <string name="install_mode_normal">क्लासिकल (राइट /सिस्टम दुरेक्ट्ली)</string>
     <string name="install_mode_recovery_auto">रिकवरी (फ़्लैश ज़िप ऑटोमेटिकली)</string>
     <string name="install_mode_recovery_manual">रेकोवेय (इप असडी कार्ड पर लिखो, मैन्युअली फ़्लैश करो)</string>
     <string name="settings_group_download">डाउनलोड</string>
-    <string name="settings_enable_downloads">इनेबल डोव्न्लॉद्स</string>
-    <string name="settings_enable_downloads_summary">एक्स्पोसड इंस्टालर को दोव्न्लॉद्स चालू करने के लिए अनुमति दे</string>
     <string name="settings_release_type">वेर्सिओंस दिखने</string>
     <string name="settings_group_experimental">प्रायोगिक</string>
     <string name="settings_disable_resources">रिसोर्स हुक्स दिअब्ले करे</string>

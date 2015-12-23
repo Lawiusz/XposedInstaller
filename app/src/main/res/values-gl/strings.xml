@@ -6,7 +6,6 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Framework</string>
     <string name="welcome_framework_update_available">Unha actualización está dispoñible para Xposed Framework.</string>
-    <string name="welcome_update_available">Un ou máis actualizacións están dispoñibles para os módulos.</string>
     <!-- Installer tab -->
     <string name="soft_reboot">Reinicie Software</string>
     <string name="reboot">Reinicie</string>
@@ -47,8 +46,6 @@
 
     <!-- Settings tab -->
     <string name="settings_group_download">Descargar</string>
-    <string name="settings_enable_downloads">Activar descargas</string>
-    <string name="settings_enable_downloads_summary">Permitir Xposed instalador comprobe se hai actualizacións e novos módulos</string>
     <string name="settings_group_experimental">Experimental</string>
     <string name="settings_performance_experiment">Performance experiment</string>
     <string name="settings_performance_experiment_summary">Se permitir tanto, o rendemento do sistema pode aumentar, diminuír ou permanecer o mesmo. Síntase libre para probar e informar o efecto do que é (ou se non hai ningún efecto). Ten que reinstalar o Stock Framework e reiniciar despois de cambiar esto.</string>

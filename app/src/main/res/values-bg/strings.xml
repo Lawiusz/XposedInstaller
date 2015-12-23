@@ -9,19 +9,14 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Framework</string>
     <string name="welcome_framework_update_available">Налично е обновление за Xposed framework (%s).</string>
-    <string name="welcome_update_available">Налични са едно или повече обновления за модулите.</string>
     <!-- Installer tab -->
     <string name="install_header_reboot">Рестартиране</string>
     <string name="soft_reboot">Софт рестарт</string>
     <string name="reboot">Рестарт</string>
     <string name="areyousure">Сигурни ли сте?</string>
     <string name="reboot_failed">Рестартирането не е възможно. Моля използвайте нормалната функция за рестартиране на устройството.</string>
-    <string name="install_warning_title">Бъдете внимателни!</string>
-    <string name="install_warning">В някои случаи е възможно, след инсталиране на Xposed вашето устройство да не стартира.\n\nАко никога не сте чували за \"soft brick\" и \"bootloop\" или ако незнаете как да възстановите устройството в такава ситуация, <b>НЕ</b> инсталирайте Xposed!\n\nВъв всеки случай се препоръчва да имате скорошно резервно копие.</string>
-    <string name="dont_show_again">Не показвай отново</string>
     <string name="tap_to_dismiss">Докоснете за отказ</string>
     <!-- File operations -->
-    <string name="root_failed">Няма root достъп.\n\nУбедете се, че устройството Ви е root-нато и не сте блокирали shell командите.</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Модула за Xposed не е активиран</string>
     <string name="module_is_not_activated_yet_detailed">%s беше инсталиран, но все още не е активиран.</string>
@@ -79,13 +74,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">Инсталиране</string>
-    <string name="settings_install_mode">Режим на инсталиране</string>
     <string name="install_mode_normal">Класически (запис в папка /system)</string>
     <string name="install_mode_recovery_auto">Recovery (flash zip автоматично)</string>
     <string name="install_mode_recovery_manual">Recovery (запис на zip в SD картата, flash ръчно)</string>
     <string name="settings_group_download">Изтегляне</string>
-    <string name="settings_enable_downloads">Позволи изтегляния</string>
-    <string name="settings_enable_downloads_summary">Позволи на Xposed Installer да проверява за обновления и нови модули</string>
     <string name="settings_release_type">Показвай версии</string>
     <string name="settings_group_experimental">Експериментално</string>
     <string name="settings_disable_resources">Изключевно прихващане на ресурси</string>

@@ -9,19 +9,14 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Framework</string>
     <string name="welcome_framework_update_available">Đã có bản mới cho framework của Xposed (%s).</string>
-    <string name="welcome_update_available">Một hoặc nhiều module có phiên bản mới.</string>
     <!-- Installer tab -->
     <string name="install_header_reboot">Khởi động lại</string>
     <string name="soft_reboot">Khởi động lại mềm</string>
     <string name="reboot">Khởi động lại</string>
     <string name="areyousure">Bạn chắc chắn?</string>
     <string name="reboot_failed">Không thể khởi động lại. Vui lòng sử dụng chức năng khởi động lại của thiết bị.</string>
-    <string name="install_warning_title">Hãy cẩn thận!</string>
-    <string name="install_warning">Trong một số trường hợp, thiết bị của bạn có thể không khởi động được sau khi cài Xposed.\n\nNếu bạn chưa từng nghe nói về \"soft brick\" và \"bootloop\" hoặc nếu bạn không biết cách xử lý trong tình huống đó, thì <b>ĐỪNG</b> cài Xposed!\n\nDù thế nào, bạn cũng nên có một bản sao lưu mới.</string>
-    <string name="dont_show_again">Đừng hiện lại nữa</string>
     <string name="tap_to_dismiss">Bấm để đóng lại</string>
     <!-- File operations -->
-    <string name="root_failed">Không thể lấy quyền root.\n\nHãy đảm bảo rằng thiết bị của bạn đã root và bạn không chặn các lệnh shell.</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Module chưa bật</string>
     <string name="module_is_not_activated_yet_detailed">%s đã được cài, nhưng chưa được kích hoạt.</string>
@@ -79,13 +74,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">Cài đặt</string>
-    <string name="settings_install_mode">Chế độ cài đặt</string>
     <string name="install_mode_normal">Kiểu cũ (ghi trực tiếp vào /system)</string>
     <string name="install_mode_recovery_auto">Recovery (tự động flash tập tin zip)</string>
     <string name="install_mode_recovery_manual">Recovery (tạo tập tin zip trên thẻ SD, flash thủ công)</string>
     <string name="settings_group_download">Tải xuống</string>
-    <string name="settings_enable_downloads">Cho phép tải xuống</string>
-    <string name="settings_enable_downloads_summary">Cho phép Xposed Installer tìm các bản cập nhật</string>
     <string name="settings_release_type">Phiên bản được hiển thị</string>
     <string name="settings_group_experimental">Thử nghiệm</string>
     <string name="settings_disable_resources">Ngắt các kết nối tài nguyên</string>

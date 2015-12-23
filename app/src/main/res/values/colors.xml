@@ -6,8 +6,6 @@
     <color name="warning">@android:color/holo_red_light</color>
     <color name="download_details_title">#777</color>
     <color name="download_status_update_available">@color/darker_green</color>
-    <color name="welcome_framework_update_available">@color/download_status_update_available</color>
-    <color name="welcome_update_available">@color/download_status_update_available</color>
     <color name="darker_green">#ff22aa00</color>
 
 

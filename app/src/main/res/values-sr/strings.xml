@@ -9,18 +9,12 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Framework</string>
     <string name="welcome_framework_update_available">Nova verzija Xposed framework-a je dostupna (%s).</string>
-    <string name="welcome_update_available">Jedna ili više novih verzija za module je dostupna.</string>
     <!-- Installer tab -->
     <string name="soft_reboot">Softverski restart</string>
     <string name="reboot">Restart</string>
     <string name="areyousure">Da li ste sigurni?</string>
     <string name="reboot_failed">Restartovanje je neuspešno. Milim, restartujte urđaj normalnom procedurom.</string>
-    <string name="install_warning_title">Budite oprezni!</string>
-    <string name="install_warning">U nekim slučajevima, može se desiti da vaš uređaj ne podigne sistem nakon instalacije Xposed-a.\n\Ako nikada niste čuli o terminima \"soft brick\" i \"bootloop\" do sada ili ako ne znate kako da nađete rešenje ako se nađete u toj situaciji, <b>NE</b> instalirajte Xposed!\n\nU svakom slučaju, imati rezervnu kopiju sistema je preporučljivo.</string>
-    <string name="dont_show_again">Ne prikazuj ponovo</string>
-
     <!-- File operations -->
-    <string name="root_failed">Neuspešan pristup root direktorijumu.\n\nProverite još jednom da li je vaš uređaj root-ovan pravilno i da niste blokirali shell komande.</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Xposed modul još nije aktivan</string>
     <string name="module_empty_description">(trenutno bez opisa)</string>
@@ -60,13 +54,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">Instalacija</string>
-    <string name="settings_install_mode">Vrsta instalacije</string>
     <string name="install_mode_normal">Klasična (upis u /sistem direktno)</string>
     <string name="install_mode_recovery_auto">Recovery (instalacija zip-a automatski)</string>
     <string name="install_mode_recovery_manual">Recovery (upis zip-a na SD kartu, manuelna instalacija)</string>
     <string name="settings_group_download">Učitaj</string>
-    <string name="settings_enable_downloads">Dozvoli učitavanje</string>
-    <string name="settings_enable_downloads_summary">Dozvoli Xposed Instaleru proveru novih verzija i modula</string>
     <string name="settings_group_experimental">Eksperimentalno </string>
     <string name="settings_disable_resources">Onemogući resource hooks</string>
     <string name="settings_disable_resources_summary">Radi na konfliktima sa theming endžinom\n<b>UPOZORENJE:</b> Moduli koji pokušavaju da izmene resurse neće raditi ako je ova opcija omogućena.</string>

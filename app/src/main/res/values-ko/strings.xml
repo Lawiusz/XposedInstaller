@@ -9,7 +9,6 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">프레임워크</string>
     <string name="welcome_framework_update_available">새로운 버전의 Xposed 프레임워크를 설치할 수 있습니다.</string>
-    <string name="welcome_update_available">설치된 모듈들 중 일부를 새로운 버전으로 업데이트할 수 있습니다.</string>
     <!-- Installer tab -->
     <string name="soft_reboot">빠른 재시작</string>
     <string name="reboot">기본 재시작(권장)</string>
@@ -55,8 +54,6 @@
 
     <!-- Settings tab -->
     <string name="settings_group_download">내려받기</string>
-    <string name="settings_enable_downloads">내려받기를 활성화합니다.</string>
-    <string name="settings_enable_downloads_summary">Xposed 설치 도구의 내려받기 기능을 활성화합니다.</string>
     <string name="settings_group_experimental">실험적인 기능 들</string>
     <string name="settings_performance_experiment">성능에 대한 실험적인 기능 들</string>
     <string name="settings_performance_experiment_summary">이를 활성화하면 Xposed 모듈의 속도가 빨라질 수도, 나빠질 수도, 별 변화가 없을 수 있습니다.\n시도해 보고 생긴 달라진 점이나 문제점을 개발자에게 전달해 완성도를 높여줄 수 있습니다.\n이를 활성화하거나 비활성화 한 뒤엔 Xposed 프레임워크를 재설치 해야 적용이 됩니다.</string>

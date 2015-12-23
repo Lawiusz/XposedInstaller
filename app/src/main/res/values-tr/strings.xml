@@ -9,19 +9,14 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Framework</string>
     <string name="welcome_framework_update_available">Xposed için kullanılabilir bir güncelleştirme var.</string>
-    <string name="welcome_update_available">Mevcut modüller için bir veya daha fazla güncelleştirme var.</string>
     <!-- Installer tab -->
     <string name="install_header_reboot">Yeniden Başlat</string>
     <string name="soft_reboot">Hızlı yeniden başlat</string>
     <string name="reboot">Yeniden Başlat</string>
     <string name="areyousure">Eminmisiniz?</string>
     <string name="reboot_failed">Y.Başlatma hatası. Lütfen telefonu normal olarak yeniden başlatın.</string>
-    <string name="install_warning_title">Dikkatli olun!</string>
-    <string name="install_warning">Bazı durumlarda Xposed yüklendikten sonra telefonunuz soft brick olabilir\n\nEğer \"soft brick\" veya \"bootloop\" gibi terimleri duymadıysanız\veya bunlar hakkında bilginiz yoksa Xposedi <b>YÜKLEMEYİN</b> Ya da yüklemeden önce\n\nMutlaka telefonunuzu yedekleyin.</string>
-    <string name="dont_show_again">Bunu bir daha gösterme</string>
     <string name="tap_to_dismiss">Kapatmak için dokunun</string>
     <!-- File operations -->
-    <string name="root_failed">Root erişimi alınamadı.\n\nLütfen cihazınının root erişiminin açık olduğuna ve komut alabildiğine emin olun.</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Xposed modülü henüz aktif değil</string>
     <string name="module_is_not_activated_yet_detailed">%s yüklendi,ama şu an aktif değil.</string>
@@ -79,13 +74,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">Yükleme</string>
-    <string name="settings_install_mode">Yükleem Modu</string>
     <string name="install_mode_normal">Klasik (doğrudan /system klasörüne yazma)</string>
     <string name="install_mode_recovery_auto">Recovery (Zipdosyasıdna yükleme)</string>
     <string name="install_mode_recovery_manual">Recovery (SD karta zip oluşturma, manuel yükleme)</string>
     <string name="settings_group_download">İndir</string>
-    <string name="settings_enable_downloads">İndirmeleri etkinleştir</string>
-    <string name="settings_enable_downloads_summary">Xposed Yükleyici güncellemeleri ve yeni modülleri otomatik kontrol etmek için ektinleştirin</string>
     <string name="settings_release_type">Gösterilecek sürümler</string>
     <string name="settings_group_experimental">Deneysel</string>
     <string name="settings_disable_resources">Kaynak bilgiler engelli</string>

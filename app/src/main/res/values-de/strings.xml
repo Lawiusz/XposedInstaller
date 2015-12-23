@@ -9,19 +9,14 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Framework</string>
     <string name="welcome_framework_update_available">Es ist eine Aktualisierung für das Xposed-Framework verfügbar (%s).</string>
-    <string name="welcome_update_available">Es sind Aktualisierungen für Module verfügbar.</string>
     <!-- Installer tab -->
     <string name="install_header_reboot">Neustart</string>
     <string name="soft_reboot">Software-Neustart</string>
     <string name="reboot">Geräte-Neustart</string>
     <string name="areyousure">Bist du sicher?</string>
     <string name="reboot_failed">Neustart fehlgeschlagen. Bitte verwende die normale Neustartfunktion des Geräts.</string>
-    <string name="install_warning_title">Vorsicht!</string>
-    <string name="install_warning">In manchen Fällen wird das Gerät nicht mehr korrekt starten, nachdem du Xposed installiert hast.\n\nFalls dir \"Soft Brick\" und \"Bootloop\" nichts sagen oder du nicht weißt, wie du dich aus einer solchen Situation befreien kannst, solltest du Xposed <b>NICHT</b> installieren!\n\nIn jedem Fall ist es sehr empfehlenswert, ein aktuelles Backup zu haben.</string>
-    <string name="dont_show_again">Nicht wieder anzeigen</string>
     <string name="tap_to_dismiss">Antippen zum Ausblenden</string>
     <!-- File operations -->
-    <string name="root_failed">Root-Zugriff fehlgeschlagen\n\nStelle sicher, dass das Gerät korrekt gerootet ist und Shell-Kommandos nicht blockiert werden.</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Xposed-Modul ist noch nicht aktiv</string>
     <string name="module_is_not_activated_yet_detailed">%s wurde installiert, aber noch nicht aktiviert.</string>
@@ -79,13 +74,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">Installation</string>
-    <string name="settings_install_mode">Installationsmodus</string>
     <string name="install_mode_normal">Klassisch (/system direkt beschreiben)</string>
     <string name="install_mode_recovery_auto">Recovery (ZIP automatisch installieren)</string>
     <string name="install_mode_recovery_manual">Recovery (ZIP auf SD-Karte schreiben, selbst installieren)</string>
     <string name="settings_group_download">Download</string>
-    <string name="settings_enable_downloads">Downloads aktivieren</string>
-    <string name="settings_enable_downloads_summary">Xposed Installer die Suche nach Aktualisierungen und neuen Modulen erlauben</string>
     <string name="settings_release_type">Anzuzeigende Versionen</string>
     <string name="settings_group_experimental">Experimentell</string>
     <string name="settings_disable_resources">Ressourcen-APIs deaktivieren</string>

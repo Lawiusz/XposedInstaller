@@ -9,19 +9,14 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">סביבה</string>
     <string name="welcome_framework_update_available">עדכון לסביבת Xposed זמין.</string>
-    <string name="welcome_update_available">קיים עדכון למודול אחד או יותר.</string>
     <!-- Installer tab -->
     <string name="install_header_reboot">הפעל מחדש</string>
     <string name="soft_reboot">הפעלה מחדש מהירה</string>
     <string name="reboot">הפעלה מחדש</string>
     <string name="areyousure">האם אתה בטוח?</string>
     <string name="reboot_failed">הפעלה מחדש נכשלה. בבקשה הפעילו מחדש את המכשיר בעצמכם.</string>
-    <string name="install_warning_title">היו זהירים!</string>
-    <string name="install_warning">במקרים מסויימים, המכשיר שלך עלול לא לעבוד לאחר התקנה של Xposed.\n\nאם מעולם לא שמעת על \"soft brick\" ו \"bootloop\" או שאתה לא יודע איך לצאת ממצב כזה, <b>אל</b> תתקין את Xposed!\n\nבכל מקרה, מומלץ שיהיה גיבוי עדכני.</string>
-    <string name="dont_show_again">אל תציג זאת שוב</string>
     <string name="tap_to_dismiss">לחץ להתעלמות</string>
     <!-- File operations -->
-    <string name="root_failed">לא ניתן להשיג הרשאות רוט.\n\nבדקו שהמכשיר שלכם עבר תהליך רוט כראוי ושהוא לא חסום לפקודות shell.</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">מודול עוד לא מופעל</string>
     <string name="module_is_not_activated_yet_detailed">%s הותקן, אך עוד לא הופעל.</string>
@@ -79,13 +74,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">התקנה</string>
-    <string name="settings_install_mode">מצב התקנה</string>
     <string name="install_mode_normal">קלאסית (כתיבה ישירה ל/system)</string>
     <string name="install_mode_recovery_auto">רקוברי (צריבה אוטומטית)</string>
     <string name="install_mode_recovery_manual">רקוברי (העתקת הזיפ לכרטיס זיכרון, צריבה ידנית)</string>
     <string name="settings_group_download">הורדות</string>
-    <string name="settings_enable_downloads">אפשר הורדות</string>
-    <string name="settings_enable_downloads_summary">מאפשר לאפליקצייה לבדוק ולעדכן מודולים</string>
     <string name="settings_release_type">הגרסה מוצגת</string>
     <string name="settings_group_experimental">ניסיוני</string>
     <string name="settings_disable_resources">מבטל את חיבור המשאבים (resources)</string>

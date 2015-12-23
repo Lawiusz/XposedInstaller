@@ -9,18 +9,12 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Framework</string>
     <string name="welcome_framework_update_available">Aktualizace Xposed frameworku je k dispozici.</string>
-    <string name="welcome_update_available">Pro jeden nebo více modulů je k dispozici aktualizace.</string>
     <!-- Installer tab -->
     <string name="soft_reboot">Lehký restart</string>
     <string name="reboot">Restart</string>
     <string name="areyousure">Provést?</string>
     <string name="reboot_failed">Nepodařilo se restartovat zařízení, restartuje jej, prosím, běžným způsobem.</string>
-    <string name="install_warning_title">Buďte opatrní!</string>
-    <string name="install_warning">V některých případech nemusí po instalaci Xposed vaše zařízení již naběhnout.\n\nPokud nejste obeznámeni s problémem \"soft brick\" nebo \"bootloop\" a pokud nevíte, jak se v podobné situaci zachovat, <b>NEINSTALUJTE</b> Xposed!\n\nV každém případě je vřele doporučeno mít aktuální zálohu.</string>
-    <string name="dont_show_again">Již nezobrazovat</string>
-
     <!-- File operations -->
-    <string name="root_failed">Nepodařilo se získat oprávnění root.\n\nUjistěte se, že vaše je správně rootnuté a nejsou blokované přikazy shellu.</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Xposed modul ještě není aktivován</string>
     <string name="module_empty_description">(popis není k dispozici)</string>
@@ -60,13 +54,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">Instalace</string>
-    <string name="settings_install_mode">Režim instalace</string>
     <string name="install_mode_normal">Bežný (přímý zápis do /system)</string>
     <string name="install_mode_recovery_auto">Recovery (automatická instalace zipu)</string>
     <string name="install_mode_recovery_manual">Recovery (zápis zipu na SD kartu, instalujte ručně)</string>
     <string name="settings_group_download">Stahování</string>
-    <string name="settings_enable_downloads">Povolit stahování</string>
-    <string name="settings_enable_downloads_summary">Povolit Xposed Instalátoru kontrolovat aktualizace a nové moduly</string>
     <string name="settings_group_experimental">Experimentální</string>
     <string name="settings_disable_resources">Zakázat ovlivňování prostředků</string>
     <string name="settings_disable_resources_summary">(Resource hooks)\nŘeší konflikt s tématy (theme engines).\n<b>VAROVÁNÍ:</b> Je-li aktivní, moduly měnící prostředky nebudou správně pracovat.</string>

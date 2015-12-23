@@ -9,18 +9,13 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">เฟรมเวิร์ค</string>
     <string name="welcome_framework_update_available">มีการอัพเดตใหม่ของเฟรมเวิร์ค Xposed (%s).</string>
-    <string name="welcome_update_available">มีการอัพเดตใหม่สำหรับโมดูล</string>
     <!-- Installer tab -->
     <string name="soft_reboot">ซอฟท์รีบู๊ต</string>
     <string name="reboot">รีบู๊ต</string>
     <string name="areyousure">คุณแน่ใจหรือ</string>
     <string name="reboot_failed">รีบู๊ตไม่สำเร็จ กรุณาใช้วิธีรีบู๊ตตามปกติของเครื่อง</string>
-    <string name="install_warning_title">ระวังนะ!</string>
-    <string name="install_warning">บางกรณี อุปกรณ์ของคุณอาจบู๊ตไม่ได้อีกหลังติดตั้ง Xposed\n\nถ้าคุณไม่เคยได้ยิน \"soft brick\" และ \"bootloop\" มาก่อน หรือไม่รู้ว่าจะแก้ปัญหาอย่างไรหลังเกิดปัญหาเหล่านั้น <b>อย่า</b>ติดตั้ง Xposed!\n\nอย่างไรก็ตาม การแบ๊คอัพข้อมูลไว้ก่อนก็เป็นสิ่งที่ดี</string>
-    <string name="dont_show_again">ห้ามแสดงอีก</string>
     <string name="tap_to_dismiss">แตะเพื่อยกเลิก</string>
     <!-- File operations -->
-    <string name="root_failed">ไม่สามารถใช้สิทธิ์ root\n\nแน่ใจนะว่าเครื่องคุณรูทมาถูกต้องแล้ว และคุณไม่ได้บล๊อค shell commands</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">โมดูล Xposed ยังไม่ถูกเปิดใช้งาน</string>
     <string name="module_is_not_activated_yet_detailed">%s ติดตั้งแล้วเรียบร้อย, แต่ยังไม่เปิดใช้งาน.</string>
@@ -78,13 +73,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">การติดตั้ง</string>
-    <string name="settings_install_mode">โหมดการติดตั้ง</string>
     <string name="install_mode_normal">คลาสสิก (บันทึกไปที่ /system โดยตรง)</string>
     <string name="install_mode_recovery_auto">กู้คืน (แฟลช zip อัตโนมัติ)</string>
     <string name="install_mode_recovery_manual">กู้คืน (บันทึก zip ที่ SD การ์ด, แฟลชด้วยตนเอง)</string>
     <string name="settings_group_download">ดาวน์โหลด</string>
-    <string name="settings_enable_downloads">อณุญาตให้ดานว์โหลด</string>
-    <string name="settings_enable_downloads_summary">อณุญาตให้ Xposed Installer เช็คการอัพเดตและโมดูลใหม่ๆ</string>
     <string name="settings_group_experimental">การทดลอง</string>
     <string name="settings_disable_resources">ปิดการทำงาน resource hooks</string>
     <string name="settings_disable_resources_summary">แก้ปัญหากับเอนจิ้นการธีม\n<b>คำเตือน:</b> โมดูลที่พยายามจะเปลี่ยนแปลง resources จะไม่สามารถทำงานได้หากเปิดโหมดนี้</string>

@@ -6,7 +6,6 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Framework</string>
     <string name="welcome_framework_update_available">Update tersedia.</string>
-    <string name="welcome_update_available">Update tersedia untuk modul.</string>
     <!-- Installer tab -->
     <string name="soft_reboot">Reboot cepat</string>
     <string name="reboot">Reboot</string>
@@ -52,8 +51,6 @@
 
     <!-- Settings tab -->
     <string name="settings_group_download">Unduh</string>
-    <string name="settings_enable_downloads">Aktifkan unduhan</string>
-    <string name="settings_enable_downloads_summary">Perbolehkan Xposed untuk mengecek update dan unduhan</string>
     <string name="settings_group_experimental">Uji coba</string>
     <string name="settings_performance_experiment">Uji coba performa</string>
     <string name="settings_performance_experiment_summary">Jika diaktifkan, performa sistem akan naik, turun, atau tetap. Cobalah dan laporkan mana yang cocok (atau tiada). Anda perlu menginstall ulang Xposed dan reboot setelah ini.</string>

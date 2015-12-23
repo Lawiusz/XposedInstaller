@@ -6,7 +6,6 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">الإطار</string>
     <string name="welcome_framework_update_available">يتوفر تحديث لإطار إكسبوسيد.</string>
-    <string name="welcome_update_available">تحديث واحد أو أكثر من الوحدات النمطية المتوفرة.</string>
     <!-- Installer tab -->
     <string name="soft_reboot">اعادة تشغيل سريعة</string>
     <string name="reboot">اعادة التشغيل</string>
@@ -52,8 +51,6 @@
 
     <!-- Settings tab -->
     <string name="settings_group_download">تحميل</string>
-    <string name="settings_enable_downloads">تمكين التحميل</string>
-    <string name="settings_enable_downloads_summary">السماح إكسبوسيد المثبت للتحقق من وجود تحديثات ووحدات جديدة</string>
     <string name="settings_group_experimental">التجريبية</string>
     <string name="settings_performance_experiment">تجربة الأداء</string>
     <string name="settings_performance_experiment_summary">إذا قمت بتمكين هذا، أداء النظام الخاص بك قد أما زيادة أو إنقاص أو البقاء نفس. لا تتردد في جربة وتقريراً عن تأثير الذي تراه (أو إذا كان هناك لا شيء على الإطلاق). كنت بحاجة إلى تثبيت الإطار وإعادة تشغيل الكمبيوتر بعد تغيير هذا.</string>

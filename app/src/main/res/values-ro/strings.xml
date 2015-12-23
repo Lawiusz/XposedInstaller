@@ -9,19 +9,14 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Framework</string>
     <string name="welcome_framework_update_available">Un update pentru framework-ul Xposed este disponibil (%s).</string>
-    <string name="welcome_update_available">Una sau mai multe actualizari sunt disponibile pentru module.</string>
     <!-- Installer tab -->
     <string name="install_header_reboot">Repornire</string>
     <string name="soft_reboot">Repornire soft:</string>
     <string name="reboot">Repornire</string>
     <string name="areyousure">Sunteti sigur ?</string>
     <string name="reboot_failed">Repornirea a esuat. Va rugam utilizati functia nativa a dispozitivului.</string>
-    <string name="install_warning_title">Procedati cu grija !</string>
-    <string name="install_warning">In anumite cazuri dispozitivul nu va porni dupa instalarea Xposed. \n\nIf daca nu ati auzit despre \"soft brick\" si \"bootloop\" pana acum si nu stiti cum sa remediati o astfel de problema,  <b>NU</b> instalati Xposed!\n\nin nici un caz. A avea un backup recent este de preferat.</string>
-    <string name="dont_show_again">Nu mai afisati.</string>
     <string name="tap_to_dismiss">Apasati pentru a ascunde</string>
     <!-- File operations -->
-    <string name="root_failed">Accesul la root a esuat.\n\nAsigurati-va ca dispozitivul este rootat corespunzator iar comenzile de tip shell nu sunt blocate.</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Xposed nu este inca activ</string>
     <string name="module_is_not_activated_yet_detailed">%s a fost instalat, dar nu este inca activ.</string>
@@ -79,13 +74,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">Instalare</string>
-    <string name="settings_install_mode">Modul instalarii</string>
     <string name="install_mode_normal">Clasic (scriere direct in /system)</string>
     <string name="install_mode_recovery_auto">Recovery (instalare .zip automat)</string>
     <string name="install_mode_recovery_manual">Recovery (scriere pe cardul SD, instalare manuala)</string>
     <string name="settings_group_download">Descarca</string>
-    <string name="settings_enable_downloads">Activeaza descarcari</string>
-    <string name="settings_enable_downloads_summary">Permiteti Xposed Installer sa verifice daca exista actualizari sau module noi</string>
     <string name="settings_release_type">Versiune de afisat</string>
     <string name="settings_group_experimental">Experimental</string>
     <string name="settings_disable_resources">Dezactivare resource hooks</string>

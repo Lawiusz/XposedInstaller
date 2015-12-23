@@ -9,19 +9,14 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">框架</string>
     <string name="welcome_framework_update_available">Xposed框架有更新可用。</string>
-    <string name="welcome_update_available">一個或多個模組有更新可用。</string>
     <!-- Installer tab -->
     <string name="install_header_reboot">重啓</string>
     <string name="soft_reboot">軟重啟</string>
     <string name="reboot">重啟</string>
     <string name="areyousure">您確定？</string>
     <string name="reboot_failed">重啓失敗。請使用設備的標准重啓功能。</string>
-    <string name="install_warning_title">小心！</string>
-    <string name="install_warning">某些情況下，您的設備將在安裝 Xposed 之後無法啓動。\n\n如果您之前沒有聽說過“軟變磚”或“無限重啓”，或者您不知道如何從這種情況恢複，請"<b>不要</b>"安裝 Xposed！\n\n無論如何，強烈建議准備好最近的備份。</string>
-    <string name="dont_show_again">不要再顯示這個</string>
     <string name="tap_to_dismiss">輕按以消除</string>
     <!-- File operations -->
-    <string name="root_failed">無法獲取 root 權限。\n\n請確認您的設備已經正確的 root 以及您沒有屏蔽 shell 命令。</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Xposed模組未啟動</string>
     <string name="module_is_not_activated_yet_detailed">已安裝 %s，但尚未激活。</string>
@@ -79,13 +74,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">安裝</string>
-    <string name="settings_install_mode">安裝方式</string>
     <string name="install_mode_normal">經典 (直接寫入 /system)</string>
     <string name="install_mode_recovery_auto">Recovery (自動刷 zip 包)</string>
     <string name="install_mode_recovery_manual">Recovery (只將 zip 寫入 SD 卡以手動刷入)</string>
     <string name="settings_group_download">下載</string>
-    <string name="settings_enable_downloads">啟用下載</string>
-    <string name="settings_enable_downloads_summary">允許Xposed安裝器檢查更新和新模組</string>
     <string name="settings_release_type">将显示的版本</string>
     <string name="settings_group_experimental">實驗性</string>
     <string name="settings_disable_resources">禁用資源鈎子</string>

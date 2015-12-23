@@ -9,19 +9,14 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">フレームワーク</string>
     <string name="welcome_framework_update_available">Xposedフレームワークの更新があります。 (%s)</string>
-    <string name="welcome_update_available">モジュールの更新があります。</string>
     <!-- Installer tab -->
     <string name="install_header_reboot">再起動</string>
     <string name="soft_reboot">簡易再起動</string>
     <string name="reboot">再起動</string>
     <string name="areyousure">実行しますか?</string>
     <string name="reboot_failed">再起動に失敗しました。通常の再起動をしてください。</string>
-    <string name="install_warning_title">注意!</string>
-    <string name="install_warning">Xposedをインストールした後起動しなくなる場合があります。\n\n \"仮文鎮\"や\"ブートループ\"を知らない場合やその状態からの復旧方法を理解していない場合、Xposedをインストール<b>しないでください</b>!\n\nどんな場合でもバックアップしておくことは大切です。</string>
-    <string name="dont_show_again">二度と表示しない</string>
     <string name="tap_to_dismiss">タップで無視</string>
     <!-- File operations -->
-    <string name="root_failed">rootアクセスの取得に失敗しました。\n\n端末がrootedか、シェルコマンドをブロックしていないか確認してください。</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Xposedモジュールがまだ有効にされていません</string>
     <string name="module_is_not_activated_yet_detailed">%sがインストールされましたが有効にされていません。</string>
@@ -79,13 +74,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">インストール</string>
-    <string name="settings_install_mode">インストール方法</string>
     <string name="install_mode_normal">クラシック(/systemに直接書き込む)</string>
     <string name="install_mode_recovery_auto">リカバリ(自動でzipインストール)</string>
     <string name="install_mode_recovery_manual">リカバリ(zipをSDカードに書き込み手動でインストール)</string>
     <string name="settings_group_download">ダウンロード</string>
-    <string name="settings_enable_downloads">ダウンロードを有効化</string>
-    <string name="settings_enable_downloads_summary">Xposed Installerやモジュールの更新を定期的に確認するようにします。</string>
     <string name="settings_release_type">表示するリリースタイプ</string>
     <string name="settings_group_experimental">実験的</string>
     <string name="settings_disable_resources">リソースフックを無効化</string>

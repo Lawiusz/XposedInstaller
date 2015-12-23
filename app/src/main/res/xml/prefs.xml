@@ -30,11 +30,12 @@
         <CheckBoxPreference
             android:key="heads_up"
             android:summary="@string/enable_heads_up_summary"
-            android:title="@string/enable_heads_up"/>
+            android:title="@string/enable_heads_up"
+            android:defaultValue="true"/>
 
 
         <SwitchPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="nav_bar"
             android:title="@string/nav_bar_coloration"/>
 

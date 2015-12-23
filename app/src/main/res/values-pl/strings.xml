@@ -9,19 +9,14 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Framework</string>
     <string name="welcome_framework_update_available">Aktualizacja procesu framework dostarczanego przez aplikację Xposed jest dostępna.</string>
-    <string name="welcome_update_available">Jedna lub więcej aktualizacji dla modułów jest dostępna.</string>
     <!-- Installer tab -->
     <string name="install_header_reboot">Uruchom ponownie</string>
     <string name="soft_reboot">Tryb szybki</string>
     <string name="reboot">Tryb normalny</string>
     <string name="areyousure">Czy jesteś pewien?</string>
     <string name="reboot_failed">Restart nie powiódł się. Proszę użyć normalnego trybu restartu.</string>
-    <string name="install_warning_title">Bądź ostrożny!</string>
-    <string name="install_warning">W niektórych przypadkach urządzenie może nie uruchomić się po instalacji Xposed. Jeśli nigdy nie słyszałeś o miękkiej cegle, bootloopie i nie wiesz jak odzyskać w takiej sytuacji system, nie instaluj Xposed! W każdym bądź razie, zrobienie kopii zapasowej jest bardzo zalecane."</string>
-    <string name="dont_show_again">Nie pokazuj ponownie</string>
     <string name="tap_to_dismiss">Stuknij, aby zamknąć</string>
     <!-- File operations -->
-    <string name="root_failed">Nie udało się uzyskać dostępu do konta roota. Upewnij się, że urządzenie jest zrootowane prawidłowo i nie zostały zablokowane polecenia powłoki.</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Moduł Xposed nie jest jeszcze aktywny</string>
     <string name="module_is_not_activated_yet_detailed">%s został zainstalowany, ale nie został jeszcze aktywowany.</string>
@@ -79,13 +74,8 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">Instalacja</string>
-    <string name="settings_install_mode">Tryb instalacji</string>
-    <string name="install_mode_normal">Klasyczny (bezpośredni zapis)</string>
-    <string name="install_mode_recovery_auto">Poprzez recovery (automatyczna instalacja pliku zip)</string>
-    <string name="install_mode_recovery_manual">Poprzez recovery (zapisz zip na kartę SD i wybierz tryb ręczny instalacji)</string>
+    <string name="install_mode_recovery_auto">Instalacja poprzez recovery (wybierz plik zip do instalacji)</string>
     <string name="settings_group_download">Pobierz</string>
-    <string name="settings_enable_downloads">Włącz pobieranie</string>
-    <string name="settings_enable_downloads_summary">Zezwól aplikacji Xposed na sprawdzanie dostępności aktualizacji i nowych modułów</string>
     <string name="settings_release_type">Pokazywana wersja</string>
     <string name="settings_group_experimental">Eksperyment</string>
     <string name="settings_disable_resources">Wyłącz zasoby konfliktów</string>
@@ -194,7 +184,6 @@
     <string name="recovery_reboot">Reboot to recovery</string>
     <string name="xposedMainThread">Najnowsze informacje dotyczące Xposed oraz instalki zip znajdziesz <a href="http://forum.xda-developers.com/showthread.php?t=3034811">tutaj</a>.</string>
     <string name="a_repo">Repozytorium pełne różnych modułów</string>
-    <string name="about_libraries"></string>
     <string name="content_intro1">Obejrzyjmy parę funkcjonalności...</string>
     <string name="customize_your_device">Dostosuj swoje urządzenie!</string>
     <string name="no_xposed">Nie można znaleźć aktywnej wersji Xposed Framework.</string>
@@ -203,7 +192,7 @@
     <string name="modules_def">Moduły są to modyfikacje, które możesz zastosować w swoim urządzeniu. Moduł jest plikiem APK i może byc zainstalowany jak normalna aplikacja.</string>
     <string name="x_not_installed">Xposed Framework nie jest jeszcze zainstalowany</string>
     <string name="xposedCapabilities">Xposed to bardzo potężne środowisko, dające możliwość modyfikacji Twojego ROMu - bez potrzeby dekompilacji APK czy flashowania czegokolwiek!</string>
-    <string name="xposed_ready">Xposed w wersji %s zainstalowane i w gotowe do działania. Miłej zabawy!</string>
+    <string name="xposed_ready">Xposed w wersji %s zainstalowane i gotowe do działania. Miłej zabawy!</string>
     <string name="xposed_working">Wszystko gotowe!</string>
     <string name="integrated_downloader">Xposed Installer umożliwia przeglądanie, pobieranie i zarządznie modułami Xposed.</string>
     <string name="xthread_intro">Najnowszą instalkę zip Xposed znajdziesz tutaj: http://forum.xda-developers.com/showthread.php?t=3034811</string>

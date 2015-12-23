@@ -9,23 +9,18 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Framework</string>
     <string name="welcome_framework_update_available">È disponibile un aggiornamento per il framework Xposed.</string>
-    <string name="welcome_update_available">Uno o più aggiornamenti per moduli sono disponibili.</string>
     <!-- Installer tab -->
     <string name="install_header_reboot">Riavvia</string>
     <string name="soft_reboot">Riavvio soft</string>
     <string name="reboot">Riavvio</string>
     <string name="areyousure">Sei sicuro?</string>
     <string name="reboot_failed">Riavvio fallito. Usa la funzione riavvia del dispositivo.</string>
-    <string name="install_warning_title">Sii prudente!</string>
-    <string name="install_warning">In alcuni casi, il dispositivo potrebbe non accendersi più dopo l\'installazione di Xposed.\n\nSe non hai mai sentito parlare di \"soft brick\" e \"bootloop\" prima d\'ora o se non si è capaci di ripristinare il dispositivo <b>NON</b> installare Xposed!\n\nIn molti casi. avere un backup recente è altamente raccomandato.</string>
-    <string name="dont_show_again">Non mostrare più</string>
     <string name="tap_to_dismiss">Tocca per chiudere</string>
     <string name="installation_lollipop">Xposed framework non è installato. Perfavore scarica l\'ultimo ZIP file da XDA e installalo manualmente in recovery.</string>
     <string name="installed_lollipop">La versione di Xposed framework attiva è: %s.</string>
     <string name="installed_lollipop_inactive">La versione di Xposed framework installata è %s, ma non è attiva. Perfavore controlla i log per dettagli.</string>
 
     <!-- File operations -->
-    <string name="root_failed">Impossibile ottenere l\'accesso root.\n\nAssicurati di avere correttamente i permessi e di non aver bloccato comandi shell.</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Il modulo Xposed non è stato ancora attivato</string>
     <string name="module_is_not_activated_yet_detailed">%s è stato installato, ma non è ancora attivo.</string>
@@ -83,13 +78,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">Installazione</string>
-    <string name="settings_install_mode">Modalità di installazione</string>
     <string name="install_mode_normal">Classica (scrivi direttamente su /system)</string>
     <string name="install_mode_recovery_auto">Recovery (flasha un file zip automaticamente)</string>
     <string name="install_mode_recovery_manual">Recovery (Scrivi il file zip sulla scheda SD, flash  manuale)</string>
     <string name="settings_group_download">Download</string>
-    <string name="settings_enable_downloads">Abilita downloads</string>
-    <string name="settings_enable_downloads_summary">Permetti a Xposed Installer di controllare eventuali aggiornamenti e nuovi moduli</string>
     <string name="settings_release_type">Versioni da mostrare</string>
     <string name="settings_group_experimental">Sperimentale</string>
     <string name="settings_disable_resources">Disabilita agganci alle risorse</string>

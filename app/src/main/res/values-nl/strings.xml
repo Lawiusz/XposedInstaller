@@ -9,19 +9,14 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Framework</string>
     <string name="welcome_framework_update_available">Een update voor het Xposed framework is beschikbaar.</string>
-    <string name="welcome_update_available">Eén of meer update(s) voor modules beschikbaar.</string>
     <!-- Installer tab -->
     <string name="install_header_reboot">Herstart</string>
     <string name="soft_reboot">Herstart systeem</string>
     <string name="reboot">Herstart apparaat</string>
     <string name="areyousure">Weet u het zeker?</string>
     <string name="reboot_failed">Herstart mislukt. Herstart het apparaat handmatig.</string>
-    <string name="install_warning_title">Pas op!</string>
-    <string name="install_warning">In sommige gevallen kan het apparaat niet meer opstarten na het installeren van Xposed.\n\nAls u nog nooit gehoord heeft van \"soft brick\" of \"bootloop\" of als u niet weet hoe dit hersteld moet worden, installeer Xposed dan <b>NIET</b>!\n\nHet hebben van een recente back-up is in ieder geval sterk aanbevolen!</string>
-    <string name="dont_show_again">Niet opnieuw tonen</string>
     <string name="tap_to_dismiss">Tik om te verlaten</string>
     <!-- File operations -->
-    <string name="root_failed">Het krijgen van root-toegang is mislukt.\n\nZorg ervoor dat uw apparaat goed geroot is en dat shell commando\'s niet geblokkeerd worden.</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Xposed module is nog niet geactiveerd</string>
     <string name="module_is_not_activated_yet_detailed">%s werdt geinstalleerd, maar is nog niet geactiveerd.</string>
@@ -79,13 +74,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">Installatie</string>
-    <string name="settings_install_mode">Installatie-modus</string>
     <string name="install_mode_normal">Klassiek (schrijf direct naar /system)</string>
     <string name="install_mode_recovery_auto">Recovery (flash zip automatisch)</string>
     <string name="install_mode_recovery_manual">Recovery (schrijf zip naar SD-kaart, flash handmatig)</string>
     <string name="settings_group_download">Download</string>
-    <string name="settings_enable_downloads">Downloads inschakelen</string>
-    <string name="settings_enable_downloads_summary">Xposed Installer toestaan te controleren op updates en nieuwe modules</string>
     <string name="settings_release_type">Versies die worden getoond</string>
     <string name="settings_group_experimental">Experimenteel</string>
     <string name="settings_disable_resources">Resource-hooks uitschakelen</string>

@@ -9,19 +9,14 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Фреймворк</string>
     <string name="welcome_framework_update_available">Є оновлення для Xposed framework (%s).</string>
-    <string name="welcome_update_available">Є оновлення для модулів.</string>
     <!-- Installer tab -->
     <string name="install_header_reboot">Перезавантаження</string>
     <string name="soft_reboot">Швидке перезавантаження</string>
     <string name="reboot">Перезавантаження</string>
     <string name="areyousure">Чи Ви впевнені?</string>
     <string name="reboot_failed">Помилка перезавантаження. Скористуйтеся, будь-ласка, звичайною функцією перезавантаження.</string>
-    <string name="install_warning_title">Обережно!</string>
-    <string name="install_warning">В деяких випадках, після встановлення Xposed, Ваш пристрій може більше не запуститися.\n\nЯкщо Ви нічого не чули про \"soft brick\" та \"bootloop\" або якщо Ви не знаєте як відновитися з такого стану, будь-ласка, <b>НЕ</b> встановлюйте Xposed!\n\nВ будь-якому разі, наявність свіжої резервної копії є необхідністю.</string>
-    <string name="dont_show_again">Більше не показувати</string>
     <string name="tap_to_dismiss">Натисніть, щоб пропустити</string>
     <!-- File operations -->
-    <string name="root_failed">Помилка отримання прав суперкористувача.\n\nПереконайтеся, що Ваш пристрій рутований (має бути доступний суперкористувач) і що Ви не заблокували виконання shell-команд.</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Модуль Xposed ще не активовано</string>
     <string name="module_is_not_activated_yet_detailed">%s було встановлено, але ще не активовано.</string>
@@ -79,13 +74,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">Встановлення</string>
-    <string name="settings_install_mode">Режим встановлення</string>
     <string name="install_mode_normal">Класичний (прямий запис до /system)</string>
     <string name="install_mode_recovery_auto">За допомоги режиму Відновлення (автоматичне встановлення zip)</string>
     <string name="install_mode_recovery_manual">За допомоги режиму Відновлення (запис zip на картку SD, встановлення вручну)</string>
     <string name="settings_group_download">Звантаження</string>
-    <string name="settings_enable_downloads">Дозволити звантаження</string>
-    <string name="settings_enable_downloads_summary">Дозволити Xposed Installer перевіряти наявність оновлень та нових модулів</string>
     <string name="settings_release_type">Відображення версій</string>
     <string name="settings_group_experimental">Експериментальні</string>
     <string name="settings_disable_resources">Відключено зміну ресурсів</string>

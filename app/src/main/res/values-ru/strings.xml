@@ -9,19 +9,14 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Фреймворк</string>
     <string name="welcome_framework_update_available">Доступно обновление для Xposed framework (%s).</string>
-    <string name="welcome_update_available">Доступны обновления для модулей.</string>
     <!-- Installer tab -->
     <string name="install_header_reboot">Перезагрузка</string>
     <string name="soft_reboot">Быстрая перезагрузка</string>
     <string name="reboot">Полная перезагрузка</string>
     <string name="areyousure">Вы уверены?</string>
     <string name="reboot_failed">Сбой перезагрузки. Пожалуйста, используйте встроенную функцию перезагрузки на устройстве.</string>
-    <string name="install_warning_title">Будьте осторожны!</string>
-    <string name="install_warning">В некоторых случаях, устройство не может загрузиться после установки Xposed.\n\nЕсли Вы раньше никогда не слышали о \"превращении в кирпич\" и \"зацикливании\", или если Вы не знаете, как решать подобные ситуации,<b>НЕ</b> устанавливайте Xposed!\n\nВ любом случае, всегда рекомендуется иметь свежую резервную копию.</string>
-    <string name="dont_show_again">Больше не показывать</string>
     <string name="tap_to_dismiss">Нажмите для пропуска</string>
     <!-- File operations -->
-    <string name="root_failed">Сбой получения прав рут-доступа.\n\nУбедитесь, что на устройстве есть рут и команды оболочки не блокируются.</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">Модуль Xposed еще не активирован</string>
     <string name="module_is_not_activated_yet_detailed">%s установлен, но ещё не активирован.</string>
@@ -79,13 +74,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">Установка</string>
-    <string name="settings_install_mode">Режим установки</string>
     <string name="install_mode_normal">Классический (запись непосредственно в /system)</string>
     <string name="install_mode_recovery_auto">Из режима восстановления (автоматическая прошивка zip)</string>
     <string name="install_mode_recovery_manual">Из режима восстановления (запись zip на SD-карту, прошивка вручную)</string>
     <string name="settings_group_download">Загрузка</string>
-    <string name="settings_enable_downloads">Разрешить загрузку</string>
-    <string name="settings_enable_downloads_summary">Разрешить проверять обновления Xposed Installer и модулей для него</string>
     <string name="settings_release_type">Отображаемые версии</string>
     <string name="settings_group_experimental">Экспериментальные функции</string>
     <string name="settings_disable_resources">Не изменять ресурсы</string>

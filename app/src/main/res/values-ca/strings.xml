@@ -9,18 +9,12 @@
     <!-- Welcome screen / main sections -->
     <string name="tabInstall">Framework</string>
     <string name="welcome_framework_update_available">Hi ha una actualització pel Framework Xposed disponible (%s).</string>
-    <string name="welcome_update_available">Una o més actualitzacions per els mòduls estan disponibles.</string>
     <!-- Installer tab -->
     <string name="soft_reboot">Reinicia Software</string>
     <string name="reboot">Reinicia</string>
     <string name="areyousure">N\'esteu segur?</string>
     <string name="reboot_failed">No s\'ha pogut reiniciar. Utilitzeu la funció de reinici del propi dispositiu.</string>
-    <string name="install_warning_title">Aneu amb compte!</string>
-    <string name="install_warning">En alguns casos, el vostre dispositiu potser no torna a iniciar-se després d\'instal·lar Xposed.\n\nIf you never heard about \"soft brick\" and \"bootloop\" before or if you don\'t know how to recover from such a situation, do <b>NOT</b> install Xposed!\n\nIn any case, having a recent backup is highly recommended.</string>
-    <string name="dont_show_again">No ho tornis a mostrar</string>
-
     <!-- File operations -->
-    <string name="root_failed">No s\'ha pogut obtenir accés de superusuari.\n\nComproveu que el dispositiu està ben rootejat i que no heu bloquejat comandes shell.</string>
     <!-- Modules tab -->
     <string name="module_is_not_activated_yet">El mòdul Xposed encara no està actiu</string>
     <string name="module_empty_description">(no es va proporcionar descripció)</string>
@@ -60,13 +54,10 @@
 
     <!-- Settings tab -->
     <string name="settings_group_installation">Instal·lació</string>
-    <string name="settings_install_mode">Mode d\'instal·lació</string>
     <string name="install_mode_normal">Clàssica (escriu a /system directament)</string>
     <string name="install_mode_recovery_auto">Recovery (flash zip automatically)</string>
     <string name="install_mode_recovery_manual">Recovery (copia el zip a la targeta SD, flash manualment)</string>
     <string name="settings_group_download">Descarrega</string>
-    <string name="settings_enable_downloads">Activa descàrregues</string>
-    <string name="settings_enable_downloads_summary">Permet a l\'instal·lador Xposed comprovar actualitzacions i nous mòduls</string>
     <string name="settings_group_experimental">Experimental</string>
     <string name="settings_disable_resources">Disabled resource hooks</string>
     <string name="settings_disable_resources_summary">Workaround for conflicts with theming engines\n<b>WARNING:</b> Modules which try to change resources will not work when this is enabled.</string>
